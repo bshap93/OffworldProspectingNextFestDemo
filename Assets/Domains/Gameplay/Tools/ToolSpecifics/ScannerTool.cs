@@ -5,6 +5,7 @@ using Domains.Gameplay.Equipment.Scripts;
 using Domains.Scripts_that_Need_Sorting;
 using HighlightPlus;
 using MoreMountains.Feedbacks;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -17,6 +18,11 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
         [SerializeField] private MMFeedbacks equipFeedbacks;
         [SerializeField] private MMFeedbacks useFeedbacks;
         [SerializeField] private HighlightEffect highlightEffect;
+        [SerializeField] protected float scanningCooldown = 3f;
+        Coroutine CooldownCoroutine;
+        protected float lastScanTime = -999f;
+
+        [SerializeField] ProgressBarBlue cooldownProgressBar;
 
         [FormerlySerializedAs("textureDetector")] [SerializeField]
         private TerrainLayerDetector terrainLayerDetector;
@@ -46,10 +52,20 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
 
         public void PerformToolAction()
         {
+            if (Time.time < lastScanTime + scanningCooldown)
+                return;
+            
+            lastScanTime = Time.time;
+            if (CooldownCoroutine != null)
+            {
+                StopCoroutine(CooldownCoroutine);
+            }
             EquipmentEvent.Trigger(EquipmentEventType.ChangeToEquipment, ToolType.Scanner);
             useFeedbacks?.PlayFeedbacks();
             highlightEffect.highlighted = true;
             _compassNavigatorPro.Scan();
+            
+            CooldownCoroutine = StartCoroutine(cooldownProgressBar.ShowCooldownBarCoroutine(scanningCooldown));
         }
 
         public bool CanInteractWithTextureIndex(int index)

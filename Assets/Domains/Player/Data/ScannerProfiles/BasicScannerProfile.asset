@@ -15,9 +15,9 @@ MonoBehaviour:
   center: {x: 0, y: 0, z: 0}
   color: {r: 0.5921569, g: 0.5921569, b: 0.5921569, a: 0.44705883}
   maxRange: 100
-  duration: 1
-  fadeOutStart: 1
-  fadeOutDuration: 0.7
+  duration: 0.5
+  fadeOutStart: 0.5
+  fadeOutDuration: 0.5
   width: 100
   grid: 1
   gridColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0.25490198}
