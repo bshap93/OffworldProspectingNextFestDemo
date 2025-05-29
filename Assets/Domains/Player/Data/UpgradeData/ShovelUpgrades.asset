@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b82d13edcd624048b3e42078ab62b87, type: 3}
+  m_Name: ShovelUpgrades
+  m_EditorClassIdentifier: 
+  upgradeTypeName: Shovel
+  upgradeNames:
+  - Shovel LV1
+  - Shovel LV2
+  - Shovel LV3
+  - Shovel LV4
+  description: 
+  upgradeCosts: b0040000980800003011000028230000
+  upgradeColors:
+  - {r: 0.014813383, g: 0.67295593, b: 0.061269637, a: 1}
+  - {r: 0, g: 0.10374492, b: 0.9433962, a: 1}
+  - {r: 0.34586883, g: 0.035975583, b: 0.67295593, a: 1}
+  - {r: 0.9748427, g: 0.7363685, b: 0.25444004, a: 1}
+  upgradeMaterials:
+  - {fileID: 2100000, guid: 55ca6cd7c485f3c4da5c26bb7d2a30f7, type: 2}
+  - {fileID: 2100000, guid: 86b5a14a3c924a74f809e8064b0ab30c, type: 2}
+  - {fileID: 2100000, guid: 24f6898550ef05c4b894ecd73baf030f, type: 2}
+  - {fileID: 2100000, guid: deb66a7f94b40854d82e7522898a5eca, type: 2}
+  upgradeSounds:
+  - {fileID: 8300000, guid: aa76393b307c859428fa0d6a35c36365, type: 3}
+  - {fileID: 8300000, guid: aa76393b307c859428fa0d6a35c36365, type: 3}
+  - {fileID: 8300000, guid: aa76393b307c859428fa0d6a35c36365, type: 3}
+  - {fileID: 8300000, guid: aa76393b307c859428fa0d6a35c36365, type: 3}
+  effectTypes: 00000000000000000000000000000000
+  effectValues:
+  - 1.35
+  - 1.35
+  - 1.35
+  - 1.35
+  toolChangeIDs:
+  - 
+  - 
+  - 
+  - 
+  secondaryEffectTypes: 00000000000000000000000000000000
+  secondaryEffectValues:
+  - 1
+  - 1
+  - 1
+  - 1

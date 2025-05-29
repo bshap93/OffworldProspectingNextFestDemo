@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c513cc86268641548beb2a700c144afd
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299310
+  packageName: Toolkit for Steamworks 2025
+  packageVersion: 4.1.3
+  assetPath: Packages/com.heathen.steamworks/Samples~/Prefabs/Clan List.prefab
+  uploadId: 750173

@@ -1,0 +1,7 @@
+newmtl T_29_5_Rock_Taurus
+map_Kd T_29_5_Rock_basecolor.png
+bump T_29_5_Rock_normal.png
+disp T_29_5_Rock_height.png
+Kd 1 1 1
+d 1
+

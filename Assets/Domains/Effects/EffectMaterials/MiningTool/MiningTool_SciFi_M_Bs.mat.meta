@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 3ab0e9edd3d67d141bd835767fbe714f
+timeCreated: 1523898528
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117457
+  packageName: Sci-Fi Tools
+  packageVersion: 1.0
+  assetPath: Assets/SciFi_Tools_BS/Models/Materials/MiningTool_SciFi_M_Bs.mat
+  uploadId: 242452

@@ -1,0 +1,122 @@
+
+# This .gitignore file should be placed at the root of your Unity project directory
+
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+
+
+
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D generated file on crash reports
+sysinfo.txt
+
+# Builds
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Crashlytics generated file
+crashlytics-build.properties
+
+# Packed Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Temporary auto-generated Android Assets
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+/[Aa]ssets/ThirdParty/3DAssets/*
+/[Aa]ssets/ThirdParty/AssetInventory/*
+/[Aa]ssets/ThirdParty/TerrainSampleAssets/*
+/[Aa]ssets/ThirdParty/Plugins/*
+/[Aa]ssets/ThirdParty/KUBIKOS-Sci-fi Cube World/*
+/[Aa]ssets/ThirdParty/_DLNK/*
+/[Aa]ssets/ThirdParty/
+/[Aa]ssets/TutorialInfo/*
+/[Aa]ssets/ThirdParty/Modern UI Pack/*
+/[Aa]ssets/ThirdParty/PolygonSciFiWorlds/*
+/[Aa]ssets/ThirdParty/LowlyPoly/*
+/[Aa]ssets/GSpawn - Level Designer (PRO)/*
+/[Aa]ssets/ThirdParty/SineVFX/*
+/[Aa]ssets/ThirdParty/Audio/*
+/[Aa]ssets/_DLNK/*
+/[Rr]ecordings/*
+/[Aa]ssets/_AssetInventoryPreviewsTemp/*
+Assets/Scenes/MainScene03.unity
+
+
+*.vom_v*
+*.vox_v*
+*.asset_*
+*.ver
+current_version.asset
+
+/[Pp]ackages/MicroSplat-Core/*
+/[Pp]ackages/MicroSplat-CoreURP6/*
+/[Pp]ackages/com.jbooth.microsplat.urp6/*
+/[Pp]ackages/com.jbooth.microsplat.core/*
+/[Pp]ackages/com.jbooth.microsplat.digger/*
+/[Pp]ackages/com.jbooth.microsplat.triplanar/*
+/[Pp]ackages/com.occasoftware.altos/*
+
+
+# Visual Studio / MonoDevelop generated
+.vs/
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# RiderFlow plugin
+/[Aa]ssets/Plugins/Editor/JetBrains*
+/[Aa]ssets/Plugins/*
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# ProBuilder
+/[Aa]ssets/ProBuilder Data/ProBuilder_Preferences.asset
+/[Aa]ssets/ProBuilder Data/Default Material Palette.asset
+
+# External asset store assets
+/[Aa]ssets/Assets*
+/[Aa]ssets/Plugins*
+/[Aa]ssets/polyperfect*
+/[Aa]ssets/ThirdParty*
+
+# Specific to your project structure
+/[Aa]ssets/ExternalAssets*
+/[Aa]ssets/XternalAssets*
+/[Aa]ssets/Sirenix*
+/[Aa]ssets/vTabs*
+/[Aa]ssets/TopDownEngine*
+/[Aa]ssets/fmodstudio20224win64-installer.exe

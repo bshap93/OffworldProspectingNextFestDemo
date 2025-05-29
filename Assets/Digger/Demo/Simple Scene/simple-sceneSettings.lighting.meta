@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2df6b0b8a011a574aba3a56155a9e3bf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4890085278179872738
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 149753
+  packageName: Digger PRO - Voxel enhanced terrains
+  packageVersion: 7.1
+  assetPath: Assets/Digger/Demo/Simple Scene/simple-sceneSettings.lighting
+  uploadId: 752960

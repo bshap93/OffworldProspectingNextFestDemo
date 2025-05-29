@@ -1,0 +1,214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7968777307663742505
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DissolveCube_Metal_Grunge 1
+  m_Shader: {fileID: -6465566751694194690, guid: 79e85552f7143784eb20b823b3483587, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _BUILTIN_ALPHATEST_ON
+  - _BUILTIN_AlphaClip
+  - _TRIPLANAR_SPACE_WORLD
+  - _USE_DISSOLVE
+  m_InvalidKeywords: []
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: TransparentCutout
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Additional_Edge_Pattern:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 01fd2e4369317004db85e484f54d5c65, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AmbientOcclusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: e199797e5e444a2468a50591b3e9505b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emission:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: 0d54d38a86511bc4cbb5be03a7ee4136, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GuideTexture:
+        m_Texture: {fileID: 2800000, guid: d346299f162b4ff4089a40a54931a88b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 01fd2e4369317004db85e484f54d5c65, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Main_Edge_Pattern:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Metallic:
+        m_Texture: {fileID: 2800000, guid: 1df9ef671093fc1458e8cbd3871a9a13, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: 1df9ef671093fc1458e8cbd3871a9a13, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: e199797e5e444a2468a50591b3e9505b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Opacity:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Roughness:
+        m_Texture: {fileID: 2800000, guid: c612b9c37bc1f554eb79ea9c3a9c9858, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Specular:
+        m_Texture: {fileID: 2800000, guid: a2a3877c1324b4e43ac1401a2c2bcf7e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: 3f0d580adb4b847458e0acfe7fbcbf3e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - INVERT_DIRECTION: 0
+    - _2_sided_Additional_Edge: 0
+    - _2_sided_Additional_Edge_VD: 0
+    - _AXIS: 1
+    - _Additional_Edge: 1
+    - _Additional_Edge_Pattern_Tiling: 1
+    - _Additional_Edge_Strength: 0
+    - _BUILTIN_AlphaClip: 1
+    - _BUILTIN_Blend: 0
+    - _BUILTIN_CullMode: 2
+    - _BUILTIN_DstBlend: 0
+    - _BUILTIN_QueueControl: 0
+    - _BUILTIN_QueueOffset: 0
+    - _BUILTIN_SrcBlend: 1
+    - _BUILTIN_Surface: 0
+    - _BUILTIN_ZTest: 4
+    - _BUILTIN_ZWrite: 1
+    - _BUILTIN_ZWriteControl: 0
+    - _BumpScale: 1
+    - _Cutoff: 0
+    - _DetailNormalMapScale: 1
+    - _DissolveAmount: 0
+    - _DstBlend: 0
+    - _EdgeWidth: 0.005
+    - _Emission_Intensity: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _GuideStrength: 3
+    - _GuideTilling: 2
+    - _Guide_Affects_Edges: 0
+    - _Guide_Affects_Edges_VD: 0
+    - _Hardness: 0
+    - _Hardness_VD: 0.5
+    - _Main_Edge: 0
+    - _Main_Edge_Pattern_Tiling: 1
+    - _Main_Edge_Strength: 0
+    - _MaxValue: 1
+    - _Metallic: 1
+    - _Metallic_Intensity: 1.36
+    - _MinValue: -1
+    - _Mode: 0
+    - _Noise_Scroll_Speed: 0
+    - _Noise_Tiling: 1
+    - _OcclusionStrength: 1
+    - _Opacity_Intensity: 1
+    - _Parallax: 0.02
+    - _Roughness_Intensity: 8.98
+    - _Scroll_Speed: 0
+    - _Smoothness: 0.349
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _Specular_Intensity: 2
+    - _SrcBlend: 1
+    - _Strength: 0
+    - _TRIPLANAR_SPACE: 0
+    - _USE_BACK_COLOR: 0
+    - _USE_DISSOLVE: 1
+    - _USE_TRIPLANAR_UVS: 0
+    - _USE_VERTEX_DISPLACEMENT: 0
+    - _UVSec: 0
+    - _Use_Metallic_Texture: 1
+    - _Width: 0
+    - _ZWrite: 1
+    - __dirty: 0
+    m_Colors:
+    - _Additional_Edge_Color_1: {r: 0, g: 2.133333, b: 4, a: 0}
+    - _Additional_Edge_Color_2: {r: 0.01943774, g: 0, b: 0.7490196, a: 0}
+    - _Back_Color: {r: 0, g: 2.481531, b: 3.9999995, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DissolveColor: {r: 0, g: 3.8782308, b: 7.999999, a: 0}
+    - _EmissionColor: {r: 9.849155, g: 9.849155, b: 9.849155, a: 1}
+    - _Emission_Back_Color: {r: 0, g: 2.1855924, b: 3.9999995, a: 0}
+    - _Main_Edge_Color_1: {r: 0, g: 2.133333, b: 4, a: 0}
+    - _Main_Edge_Color_2: {r: 0, g: 0.03053473, b: 0.6698113, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

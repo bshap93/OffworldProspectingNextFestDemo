@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabfd78b899b6a54ab5d823863f737a6, type: 3}
+  m_Name: MediumProfile
+  m_EditorClassIdentifier: 
+  InitialMaxFuel: 100
+  InitialMaxHealth: 20
+  initialUpgradeColor: {r: 0.81761, g: 0.81761, b: 0.81761, a: 1}
+  initialPickaxeMaterial: {fileID: 2100000, guid: 3ac396b7def709548ad525a4324d2155, type: 2}
+  initialShovelMaterial: {fileID: 2100000, guid: 811b9db2cc68c1848a54e3c0269b7dc2, type: 2}
+  initialScannerMaterial: {fileID: 2100000, guid: efdc6d31ee5e58349bd28802f9cce677, type: 2}
+  InitialWeightLimit: 5
+  InitialCurrency: 10000
+  InitialUpgradeState: 0
+  initialShovelToolEffectRadius: 0.4
+  initialPickaxeToolEffectRadius: 0.4
+  initialJetPackSpeedMultiplier: 1.22
+  SkipTutorial: 0
+  shovelMiningToolWidth: 0.4
+  pickaxeMiningToolWidth: 0.4
+  initialShovelToolEffectOpacity: 5
+  pickaxeMiningToolEffectOpacity: 10
+  initialJetPackParticleColor: {r: 1, g: 1, b: 1, a: 1}

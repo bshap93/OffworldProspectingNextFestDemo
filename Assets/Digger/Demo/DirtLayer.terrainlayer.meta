@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5254a2672ae194b228033c789d8c7483
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 149753
+  packageName: Digger PRO - Voxel enhanced terrains
+  packageVersion: 7.1
+  assetPath: Assets/Digger/Demo/DirtLayer.terrainlayer
+  uploadId: 752960

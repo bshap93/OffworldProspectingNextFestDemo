@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c238c3b34ec914a8965f853df018eb, type: 3}
+  m_Name: UraniumResource
+  m_EditorClassIdentifier: 
+  ItemID: UraniumResource
+  ItemName: Uranium
+  ItemDescription: A greenish yellow radioactive stone.
+  ItemIcon: {fileID: 21300000, guid: 953555228aff6a64db676584a18e6e0e, type: 3}
+  ItemWeight: 2
+  ItemValue: 800
+  ItemType: 0

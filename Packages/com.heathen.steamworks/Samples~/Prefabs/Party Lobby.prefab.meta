@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5421813c4dcea9540a3922ba2e0f325f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299310
+  packageName: Toolkit for Steamworks 2025
+  packageVersion: 4.1.3
+  assetPath: Packages/com.heathen.steamworks/Samples~/Prefabs/Party Lobby.prefab
+  uploadId: 750173

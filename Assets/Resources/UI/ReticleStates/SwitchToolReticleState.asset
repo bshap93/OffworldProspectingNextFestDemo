@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06cf26b9bb5042d48b17df66ade7b83b, type: 3}
+  m_Name: SwitchToolReticleState
+  m_EditorClassIdentifier: 
+  reticleSprite: {fileID: 21300000, guid: af205b89c9f708f4999e3196997c41e7, type: 3}
+  reticleColor: {r: 0.41568628, g: 0.8117647, b: 0.41568628, a: 1}
+  stateName: Switch Tool State
+  stateDescription: 

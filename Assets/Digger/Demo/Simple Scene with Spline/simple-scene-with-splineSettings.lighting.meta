@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b5236a5dcd3b1f24290a775032ecc311
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4890085278179872738
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 149753
+  packageName: Digger PRO - Voxel enhanced terrains
+  packageVersion: 7.1
+  assetPath: Assets/Digger/Demo/Simple Scene with Spline/simple-scene-with-splineSettings.lighting
+  uploadId: 752960

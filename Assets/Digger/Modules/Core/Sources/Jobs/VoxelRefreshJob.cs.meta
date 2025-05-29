@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: d8baa4668b4f441e9fe13218021f3e9a
+timeCreated: 1581087710
+AssetOrigin:
+  serializedVersion: 1
+  productId: 149753
+  packageName: Digger PRO - Voxel enhanced terrains
+  packageVersion: 7.1
+  assetPath: Assets/Digger/Modules/Core/Sources/Jobs/VoxelRefreshJob.cs
+  uploadId: 752960

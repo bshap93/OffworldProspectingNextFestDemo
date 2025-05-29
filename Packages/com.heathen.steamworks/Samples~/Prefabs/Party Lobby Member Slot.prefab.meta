@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4d2c003dfac73854787dd32e2c117cb3
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299310
+  packageName: Toolkit for Steamworks 2025
+  packageVersion: 4.1.3
+  assetPath: Packages/com.heathen.steamworks/Samples~/Prefabs/Party Lobby Member
+    Slot.prefab
+  uploadId: 750173

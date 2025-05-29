@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1d06ead0f1f64485f9d6ada38156ddbe
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 149753
+  packageName: Digger PRO - Voxel enhanced terrains
+  packageVersion: 7.1
+  assetPath: Assets/Digger/Demo/RoughRockLayer.terrainlayer
+  uploadId: 752960

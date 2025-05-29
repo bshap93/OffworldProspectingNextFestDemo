@@ -1,0 +1,520 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8754487401590561971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] menu_select'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: menu_select
+--- !u!114 &-7789141777928874618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875677f33105c5b45bb7e7641fc75837, type: 3}
+  m_Name: '[Ach] ACH_WIN_100_GAMES'
+  m_EditorClassIdentifier: 
+  data:
+    id: ACH_WIN_100_GAMES
+--- !u!114 &-6231290177005481033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c85766c32eadc4e8a72da7933e8fab, type: 3}
+  m_Name: '[Stat Int] NumWins'
+  m_EditorClassIdentifier: 
+  data:
+    id: NumWins
+--- !u!114 &-6147668329657989919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e866e8a4a73be184fa6f7779f4583d58, type: 3}
+  m_Name: '[DLC] pieterw test DLC'
+  m_EditorClassIdentifier: 
+  data:
+    id: 110902
+--- !u!114 &-6147558929908988922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] pause_menu'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: pause_menu
+--- !u!114 &-5679214544918275566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbfbe0990cdb5a54a98b11060366bc10, type: 3}
+  m_Name: '[Stat Float] FeetTraveled'
+  m_EditorClassIdentifier: 
+  data:
+    id: FeetTraveled
+--- !u!114 &-5362950496576159478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875677f33105c5b45bb7e7641fc75837, type: 3}
+  m_Name: '[Ach] ACH_TRAVEL_FAR_ACCUM'
+  m_EditorClassIdentifier: 
+  data:
+    id: ACH_TRAVEL_FAR_ACCUM
+--- !u!114 &-4869581332047730602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76e6cc6befcefe49bd99c6ddff7c712, type: 3}
+  m_Name: '[Input-Set] ship_controls'
+  m_EditorClassIdentifier: 
+  setName: ship_controls
+--- !u!114 &-4056493014257633868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] menu_down'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: menu_down
+--- !u!114 &-3904082213450497741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] menu_cancel'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: menu_cancel
+--- !u!114 &-3129890374331736930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbfbe0990cdb5a54a98b11060366bc10, type: 3}
+  m_Name: '[Stat Float] MaxFeetTraveled'
+  m_EditorClassIdentifier: 
+  data:
+    id: MaxFeetTraveled
+--- !u!114 &-2940703789013211130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] turn_left'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: turn_left
+--- !u!114 &-1832779828411566537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] fire_lasers'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: fire_lasers
+--- !u!114 &-1313830288268942623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] analog_controls'
+  m_EditorClassIdentifier: 
+  type: 0
+  actionName: analog_controls
+--- !u!114 &-901917763228591858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875677f33105c5b45bb7e7641fc75837, type: 3}
+  m_Name: '[Ach] ACH_WIN_ONE_GAME'
+  m_EditorClassIdentifier: 
+  data:
+    id: ACH_WIN_ONE_GAME
+--- !u!114 &-277513304993817092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321a11f9b2b322e4087dbc68a7902c7c, type: 3}
+  m_Name: '[Input-SetLayer] thrust_action_layer'
+  m_EditorClassIdentifier: 
+  layerName: thrust_action_layer
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303d26a337ee62e4392ff75b6b3a8c05, type: 3}
+  m_Name: SteamMain
+  m_EditorClassIdentifier: 
+  applicationId: 3621020
+  callbackTick_Milliseconds: 15
+  isDebugging: 1
+  server:
+    autoInitialize: 1
+    autoLogon: 0
+    ip: 0
+    queryPort: 27016
+    gamePort: 27015
+    serverVersion: 1.0.0.0
+    spectatorPort: 27017
+    usingGameServerAuthApi: 1
+    enableHeartbeats: 1
+    supportSpectators: 0
+    spectatorServerName: Usually GameDescription + Spectator
+    anonymousServerLogin: 1
+    gameServerToken: See https://steamcommunity.com/dev/managegameservers
+    isPasswordProtected: 0
+    serverName: My Server Name
+    gameDescription: Usually the name of your game
+    gameDirectory: e.g. its folder name
+    isDedicated: 1
+    maxPlayerCount: 4
+    botPlayerCount: 0
+    mapName: 
+    gameData: 
+    rulePairs: []
+  client:
+    actionSets:
+    - {fileID: 5638360914959827401}
+    - {fileID: -4869581332047730602}
+    actionSetLayers:
+    - {fileID: -277513304993817092}
+    actions:
+    - {fileID: -1313830288268942623}
+    - {fileID: 2421986677839336161}
+    - {fileID: -1832779828411566537}
+    - {fileID: 2678003640414751013}
+    - {fileID: -3904082213450497741}
+    - {fileID: -4056493014257633868}
+    - {fileID: 7959749771287034263}
+    - {fileID: 297683787257624092}
+    - {fileID: -8754487401590561971}
+    - {fileID: 3581333007331421096}
+    - {fileID: -6147558929908988922}
+    - {fileID: -2940703789013211130}
+    - {fileID: 8632535640165124528}
+    inventory:
+      items: []
+      runTimeUpdateItemDefinitions: 0
+  stats:
+  - {fileID: 5927515931701523737}
+  - {fileID: -5679214544918275566}
+  - {fileID: -3129890374331736930}
+  - {fileID: 8210358332213382963}
+  - {fileID: 4676090490962125335}
+  - {fileID: -6231290177005481033}
+  - {fileID: 1205455414891622267}
+  achievements:
+  - {fileID: -5362950496576159478}
+  - {fileID: 3437164848725619119}
+  - {fileID: -7789141777928874618}
+  - {fileID: -901917763228591858}
+  - {fileID: 3986399967542658883}
+  dlc:
+  - {fileID: -6147668329657989919}
+  - {fileID: 6091857087884096824}
+  leaderboards:
+  - {fileID: 2945646170740551867}
+--- !u!114 &297683787257624092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] menu_right'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: menu_right
+--- !u!114 &1205455414891622267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c85766c32eadc4e8a72da7933e8fab, type: 3}
+  m_Name: '[Stat Int] Unused2'
+  m_EditorClassIdentifier: 
+  data:
+    id: Unused2
+--- !u!114 &2421986677839336161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] backward_thrust'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: backward_thrust
+--- !u!114 &2678003640414751013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] forward_thrust'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: forward_thrust
+--- !u!114 &2945646170740551867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74db9acd0c6972c449f7d85fe248a7a3, type: 3}
+  m_Name: '[LdrBrd] Feet Traveled'
+  m_EditorClassIdentifier: 
+  createIfMissing: 0
+  sortMethod: 1
+  displayType: 1
+  apiName: Feet Traveled
+  maxDetailEntries: 0
+  UserEntryUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3437164848725619119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875677f33105c5b45bb7e7641fc75837, type: 3}
+  m_Name: '[Ach] ACH_TRAVEL_FAR_SINGLE'
+  m_EditorClassIdentifier: 
+  data:
+    id: ACH_TRAVEL_FAR_SINGLE
+--- !u!114 &3581333007331421096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] menu_up'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: menu_up
+--- !u!114 &3986399967542658883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875677f33105c5b45bb7e7641fc75837, type: 3}
+  m_Name: '[Ach] NEW_ACHIEVEMENT_0_4'
+  m_EditorClassIdentifier: 
+  data:
+    id: NEW_ACHIEVEMENT_0_4
+--- !u!114 &4676090490962125335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c85766c32eadc4e8a72da7933e8fab, type: 3}
+  m_Name: '[Stat Int] NumLosses'
+  m_EditorClassIdentifier: 
+  data:
+    id: NumLosses
+--- !u!114 &5638360914959827401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76e6cc6befcefe49bd99c6ddff7c712, type: 3}
+  m_Name: '[Input-Set] menu_controls'
+  m_EditorClassIdentifier: 
+  setName: menu_controls
+--- !u!114 &5927515931701523737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9584b88d43e47d5409ee2ad6a4c0c68b, type: 3}
+  m_Name: '[Stat AvgRate] AverageSpeed'
+  m_EditorClassIdentifier: 
+  data:
+    id: AverageSpeed
+--- !u!114 &6091857087884096824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e866e8a4a73be184fa6f7779f4583d58, type: 3}
+  m_Name: '[DLC] ticket test DLC'
+  m_EditorClassIdentifier: 
+  data:
+    id: 447130
+--- !u!114 &7959749771287034263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] menu_left'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: menu_left
+--- !u!114 &8210358332213382963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c85766c32eadc4e8a72da7933e8fab, type: 3}
+  m_Name: '[Stat Int] NumGames'
+  m_EditorClassIdentifier: 
+  data:
+    id: NumGames
+--- !u!114 &8632535640165124528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f022fbdb792e8e4c99b1ec28776380c, type: 3}
+  m_Name: '[Input-Action] turn_right'
+  m_EditorClassIdentifier: 
+  type: 1
+  actionName: turn_right

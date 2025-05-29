@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b82d13edcd624048b3e42078ab62b87, type: 3}
+  m_Name: InventoryUpgrades
+  m_EditorClassIdentifier: 
+  upgradeTypeName: Inventory
+  upgradeNames:
+  - +5 KG Weight Limit
+  - + 5 KG Weight Limit
+  - + 5 KG Weight Limit
+  - + 5 KG Weight Limit
+  description: 
+  upgradeCosts: e8030000b80b000070170000e02e0000
+  upgradeColors:
+  - {r: 0.014813383, g: 0.67295593, b: 0.061269637, a: 1}
+  - {r: 0, g: 0.10374492, b: 0.9433962, a: 1}
+  - {r: 0.34586883, g: 0.035975583, b: 0.67295593, a: 1}
+  - {r: 0.9748427, g: 0.7363685, b: 0.25444004, a: 1}
+  upgradeMaterials:
+  - {fileID: -1518916840275930973, guid: b10b10fca77c23a438a89eb9cc442488, type: 3}
+  - {fileID: 2100000, guid: b2fff8e33694fca4dabe69679871ab88, type: 2}
+  - {fileID: 2100000, guid: d39f1ce55ebe7784da4290f3f9c1d628, type: 2}
+  - {fileID: 2100000, guid: d925ec10c0b00a4448c07aaa73eb4eca, type: 2}
+  upgradeSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  effectTypes: 01000000010000000100000001000000
+  effectValues:
+  - 5
+  - 5
+  - 5
+  - 5
+  toolChangeIDs:
+  - 
+  - 
+  - 
+  - 
+  secondaryEffectTypes: 00000000000000000000000000000000
+  secondaryEffectValues:
+  - 1
+  - 1
+  - 1
+  - 1

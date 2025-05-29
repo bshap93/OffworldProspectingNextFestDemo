@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ce48b79002aa9fb45b39430c3acbb778
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 15600000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 149753
+  packageName: Digger PRO - Voxel enhanced terrains
+  packageVersion: 7.1
+  assetPath: Assets/Digger/Demo/Simple Scene with Spline/SimpleDemoTerrain.asset
+  uploadId: 752960
