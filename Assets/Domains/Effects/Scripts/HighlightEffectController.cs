@@ -53,7 +53,7 @@ namespace Domains.Effects.Scripts
 
         public void OnMMEvent(EquipmentEvent eventType)
         {
-            if (eventType.ToolType == ToolType.Scanner)
+            if (eventType.ToolType == ToolType.Scanner && eventType.EventType == EquipmentEventType.UseEquipment)
             {
                 if (highlightEffect != null) SetSeeThroughMode(SeeThroughMode.AlwaysWhenOccluded);
             }

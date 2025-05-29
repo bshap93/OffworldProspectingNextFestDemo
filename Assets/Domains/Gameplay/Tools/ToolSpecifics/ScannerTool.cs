@@ -60,7 +60,7 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
             {
                 StopCoroutine(CooldownCoroutine);
             }
-            EquipmentEvent.Trigger(EquipmentEventType.ChangeToEquipment, ToolType.Scanner);
+            EquipmentEvent.Trigger(EquipmentEventType.UseEquipment, ToolType.Scanner);
             useFeedbacks?.PlayFeedbacks();
             highlightEffect.highlighted = true;
             _compassNavigatorPro.Scan();

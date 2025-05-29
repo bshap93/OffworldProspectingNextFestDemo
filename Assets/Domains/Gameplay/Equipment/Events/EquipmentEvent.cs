@@ -8,7 +8,8 @@ namespace Domains.Gameplay.Equipment.Events
     public enum EquipmentEventType
     {
         ChangeToEquipment,
-        PickupEquipment
+        PickupEquipment, 
+        UseEquipment,
     }
 
     public struct EquipmentEvent

@@ -64,7 +64,7 @@ namespace Domains.Gameplay.Equipment.Scripts
 
         private void Update()
         {
-            if (CustomInputBindings.IsChangingWeapons() && Time.time - lastToolSwitchTime > toolSwitchCooldown)
+            if (CustomInputBindings.IsChangingTools() && Time.time - lastToolSwitchTime > toolSwitchCooldown)
             {
                 if (PauseManager.Instance.IsPaused()) return;
                 var direction = CustomInputBindings.GetWeaponChangeDirection();

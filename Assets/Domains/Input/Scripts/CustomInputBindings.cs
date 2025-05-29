@@ -56,7 +56,7 @@ namespace Domains.Input.Scripts
             return UnityEngine.Input.GetMouseButton(MineMouseButton);
         }
 
-        public static bool IsChangingWeapons()
+        public static bool IsChangingTools()
         {
             return UnityEngine.Input.mouseScrollDelta.y != 0;
         }

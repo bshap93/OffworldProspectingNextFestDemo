@@ -70,8 +70,12 @@ namespace Domains.Items.Scripts
                         targetRigidbody.isKinematic = true;
 
                     // Stop motion
-                    targetRigidbody.linearVelocity = Vector3.zero;
-                    targetRigidbody.angularVelocity = Vector3.zero;
+                    if (!targetRigidbody.isKinematic)
+                    {
+                        targetRigidbody.linearVelocity = Vector3.zero;
+                        targetRigidbody.angularVelocity = Vector3.zero;
+                    }
+
                 }
             }
         }

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6507819685603474770}
   - component: {fileID: 1316258304754356447}
   - component: {fileID: 6233095589709641670}
-  - component: {fileID: 3623737255044288356}
   - component: {fileID: 1147827610368190141}
   - component: {fileID: 89861604682367113}
   - component: {fileID: 2503494545819577762}
@@ -163,49 +162,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.0000005, z: 1}
   m_Center: {x: -0.000000074505806, y: 0.50000024, z: -0.00000031292439}
---- !u!114 &3623737255044288356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2233801481511711179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d18230d3a29b2a418e94d126c53f276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_questID:
-    m_text: 
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_questNodeID:
-    m_text: 
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_counterName:
-    m_text: 
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_conditionalEvent:
-    questID:
-      m_text: 
-      m_stringAsset: {fileID: 0}
-      m_textTable: {fileID: 0}
-      m_textTableFieldID: 0
-    requiredQuestState: 0
-    questNodeID:
-      m_text: 
-      m_stringAsset: {fileID: 0}
-      m_textTable: {fileID: 0}
-      m_textTableFieldID: 0
-    requiredQuestNodeState: 0
-    onConditionMet:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!114 &1147827610368190141
 MonoBehaviour:
   m_ObjectHideFlags: 0
