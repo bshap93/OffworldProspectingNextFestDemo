@@ -180,16 +180,6 @@ namespace Domains.Player.Scripts
             // Add debug log
             UnityEngine.Debug.Log($"Set health to {recoveryHealth} and fuel to {recoveryFuel} after death");
         }
-        // public void SetPostDeathStats()
-        // {
-        //     var maximumHealth = PlayerHealthManager.MaxHealthPoints;
-        //     var maxFuel = PlayerFuelManager.MaxFuelPoints;
-        //     var currentCurrency = PlayerCurrencyManager.CompanyCredits;
-        //     FuelEvent.Trigger(FuelEventType.SetCurrentFuel, fuelPenaltyMultiplier * maxFuel, maxFuel);
-        //     HealthEvent.Trigger(HealthEventType.SetCurrentHealth, 10f);
-        //     CurrencyEvent.Trigger(CurrencyEventType.RemoveCurrency, GetRescueExpense());
-        //
-        //     SaveManager.Instance.SaveAll();
-        // }
+
     }
 }

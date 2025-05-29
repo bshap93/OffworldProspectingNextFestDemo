@@ -95,6 +95,8 @@ namespace Domains.Scripts_that_Need_Sorting
             // Trigger your logic here
             playerDeathManager.SetPostFuelOutStats();
             TeleportPlayerToSpawn();
+            
+            PlayerHealthManager.ResetDeadFlag();
 
             AlertEvent.Trigger(AlertReason.ResetManually,
                 "You were charged " + playerDeathManager.GetRescueExpense() + " credits for your rescue.",

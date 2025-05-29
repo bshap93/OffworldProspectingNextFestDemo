@@ -38,6 +38,9 @@ namespace Domains.Player.Scripts
         private CharacterStatProfile _characterStatProfile;
 
         private string _savePath;
+        
+        // Add flag to prevent multiple death triggers
+        private static bool isDead = false;
 
         private void Awake()
         {
@@ -118,42 +121,17 @@ namespace Domains.Player.Scripts
         public void ConsumeHealth(float healthToConsume, HealthEventReason? reason = null)
         {
             if (immuneToDamage) return;
+            
+            // Don't process damage if already dead
+            if (isDead) return;
 
             // Store the previous health
             var previousHealth = HealthPoints;
 
-            // if (HealthPoints - healthToConsume <= 0)
-            // {
-            //     HealthPoints = 0;
-            //     PlayerStatusEvent.Trigger(PlayerStatusEventType.Died, reason);
-            // }
-            // else
-            // {
-            //     if (reason == null)
-            //     {
-            //         HealthPoints -= healthToConsume;
-            //     }
-            //     else
-            //     {
-            //         switch (reason)
-            //         {
-            //             case HealthEventReason.FallDamage:
-            //                 fallDamageFeedbacks?.PlayFeedbacks();
-            //                 break;
-            //             case HealthEventReason.LavaDamage:
-            //                 lavaDamageFeedbacks?.PlayFeedbacks();
-            //                 break;
-            //             default:
-            //                 UnityEngine.Debug.LogWarning($"Unknown HealthEventReason: {reason}");
-            //                 break;
-            //         }
-            //
-            //         HealthPoints -= healthToConsume;
-            //     }
-            // }
             if (HealthPoints - healthToConsume <= 0)
             {
                 HealthPoints = 0;
+                isDead = true; // Set dead flag to prevent multiple triggers
                 PlayerStatusEvent.Trigger(PlayerStatusEventType.Died, reason);
             }
             else
@@ -191,7 +169,11 @@ namespace Domains.Player.Scripts
 
         public static void RecoverHealth(float amount)
         {
-            if (HealthPoints == 0 && amount > 0) PlayerStatusEvent.Trigger(PlayerStatusEventType.RegainedHealth);
+            if (HealthPoints == 0 && amount > 0)
+            {
+                PlayerStatusEvent.Trigger(PlayerStatusEventType.RegainedHealth);
+                isDead = false; // Reset dead flag when health is regained
+            }
             var newHealth = HealthPoints + amount;
             if (newHealth > MaxHealthPoints)
                 HealthPoints = MaxHealthPoints;
@@ -203,15 +185,23 @@ namespace Domains.Player.Scripts
         public static void FullyRecoverHealth()
         {
             HealthPoints = MaxHealthPoints;
+            isDead = false; // Reset dead flag when health is fully recovered
             PlayerStatusEvent.Trigger(PlayerStatusEventType.RegainedHealth);
-            // SavePlayerHealth();
+
         }
 
         public static void SetCurrentHealth(float amount)
         {
             HealthPoints = amount;
-            // SavePlayerHealth();
+
         }
+         
+        // Method to reset the dead flag - should be called after teleporting player to safety
+        public static void ResetDeadFlag()
+        {
+            isDead = false;
+        }
+
 
         public static void IncreaseMaximumHealth(float amount)
         {
@@ -237,6 +227,7 @@ namespace Domains.Player.Scripts
             {
                 HealthPoints = ES3.Load<float>("HealthPoints", saveFilePath);
                 MaxHealthPoints = ES3.Load<float>("MaxHealthPoints", saveFilePath);
+                isDead = HealthPoints <= 0;
                 healthBarUpdater.Initialize();
             }
             else
@@ -262,6 +253,7 @@ namespace Domains.Player.Scripts
                 HealthPoints = characterStatProfile.InitialMaxHealth;
                 MaxHealthPoints = characterStatProfile.InitialMaxHealth;
             }
+            isDead = false; // Reset dead flag on health reset
 
             PlayerStatusEvent.Trigger(PlayerStatusEventType.ResetHealth);
         }
