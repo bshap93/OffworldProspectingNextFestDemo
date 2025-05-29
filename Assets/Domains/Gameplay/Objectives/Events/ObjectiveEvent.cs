@@ -8,7 +8,14 @@ namespace Domains.Gameplay.Objectives.Events
     {
         ObjectiveCompleted,
         ObjectiveActivated,
-        CompleteAllActiveObjectives
+        CompleteAllActiveObjectives,
+        CompleteAllObjectivesPreviousTo
+    }
+
+    public enum NotifyType
+    {
+        Silent,
+        Regular,
     }
 
     [Serializable]
@@ -18,11 +25,14 @@ namespace Domains.Gameplay.Objectives.Events
 
         public string objectiveId;
         public ObjectiveEventType type;
+        
+        public NotifyType notifyType;
 
 
-        public static void Trigger(string objectiveId, ObjectiveEventType type)
+        public static void Trigger(string objectiveId, ObjectiveEventType type, NotifyType notifyType = NotifyType.Regular)
         {
             _e.objectiveId = objectiveId;
+            _e.notifyType = notifyType;
             _e.type = type;
             MMEventManager.TriggerEvent(_e);
         }

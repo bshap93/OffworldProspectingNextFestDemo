@@ -63,15 +63,15 @@ Material:
     m_Floats:
     - _BaryContrast: 20
     - _Metallic0: 0
-    - _Metallic1: 0.161
+    - _Metallic1: 0
     - _Metallic2: 0
     - _Metallic3: 0
-    - _NormalScale0: 1
-    - _NormalScale1: 1
-    - _NormalScale2: 1
-    - _NormalScale3: 1
+    - _NormalScale0: -1.83
+    - _NormalScale1: 2
+    - _NormalScale2: 2.87
+    - _NormalScale3: 6
     - _Smoothness0: 0
-    - _Smoothness1: 0
+    - _Smoothness1: 0.16
     - _Smoothness2: 0
     - _Smoothness3: 0
     - _offset0x: 0

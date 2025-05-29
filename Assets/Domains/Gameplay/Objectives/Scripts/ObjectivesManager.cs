@@ -63,7 +63,7 @@ namespace Domains.Gameplay.Objectives.Scripts
             if (eventType.type == ObjectiveEventType.ObjectiveCompleted)
             {
                 // UnityEngine.Debug.Log($"Objective {eventType.objectiveId} has been completed.");
-                CompleteObjective(eventType.objectiveId);
+                CompleteObjective(eventType.objectiveId, eventType.notifyType);
                 SaveAllObjectives();
 
                 // Add this: Check if any objectives should now be activated
@@ -73,6 +73,9 @@ namespace Domains.Gameplay.Objectives.Scripts
             if (eventType.type == ObjectiveEventType.CompleteAllActiveObjectives)
                 // UnityEngine.Debug.Log($"Completing all active objectives.");
                 CompleteAllActiveObjectives();
+            
+            if (eventType.type == ObjectiveEventType.CompleteAllObjectivesPreviousTo)
+                CompleteAllObjectivesPreviousTo(eventType.objectiveId);
         }
 
         private void CheckForNewObjectivesToActivate()
@@ -181,7 +184,7 @@ namespace Domains.Gameplay.Objectives.Scripts
             // UnityEngine.Debug.Log($"Objective {objectiveId} added to active objectives.");
         }
 
-        public void CompleteObjective(string objectiveId)
+        public void CompleteObjective(string objectiveId, NotifyType notifyType = NotifyType.Regular)
         {
             // if (!ActiveObjectives.Contains(objectiveId))
             // {
@@ -198,6 +201,9 @@ namespace Domains.Gameplay.Objectives.Scripts
 
             ActiveObjectives.Remove(objectiveId);
             CompletedObjectives.Add(objectiveId);
+            if (notifyType == NotifyType.Silent)
+                return;
+            
             objectiveCompletedFeedback?.PlayFeedbacks();
         }
 
@@ -241,6 +247,17 @@ namespace Domains.Gameplay.Objectives.Scripts
                 if (!CompletedObjectives.Contains(objectiveId))
                     ObjectiveEvent.Trigger(objectiveId, ObjectiveEventType.ObjectiveCompleted);
 
+            SaveAllObjectives();
+        }
+        
+        public static void CompleteAllObjectivesPreviousTo(string objectiveId)
+        {
+            foreach (var completedObjective in AllObjectives)
+            {
+                if (completedObjective == objectiveId) break;
+                ObjectiveEvent.Trigger(completedObjective, ObjectiveEventType.ObjectiveCompleted, NotifyType.Silent);
+            }
+            
             SaveAllObjectives();
         }
     }

@@ -72,4 +72,9 @@ public class ObjectiveControllerHandler : MonoBehaviour, MMEventListener<Objecti
     {
         ObjectiveEvent.Trigger(objectiveId, ObjectiveEventType.CompleteAllActiveObjectives);
     }
+    
+    public void TriggerCompleteAllObjectivesPreviousTo()
+    {
+        ObjectiveEvent.Trigger(objectiveId, ObjectiveEventType.CompleteAllObjectivesPreviousTo);
+    }
 }

@@ -1,4 +1,6 @@
-﻿using Domains.Gameplay.Equipment.Events;
+﻿using System;
+using CompassNavigatorPro;
+using Domains.Gameplay.Equipment.Events;
 using Domains.Gameplay.Equipment.Scripts;
 using Domains.Scripts_that_Need_Sorting;
 using HighlightPlus;
@@ -18,6 +20,7 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
 
         [FormerlySerializedAs("textureDetector")] [SerializeField]
         private TerrainLayerDetector terrainLayerDetector;
+         CompassPro _compassNavigatorPro;
 
         [SerializeField] private LayerMask playerMask;
         [SerializeField] private float maxToolRange = 5f;
@@ -27,6 +30,13 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
         public ToolType ToolType => toolType;
         public ToolIteration ToolIteration => toolIteration;
         public MMFeedbacks EquipFeedbacks => equipFeedbacks;
+
+        private void Start()
+        {
+            _compassNavigatorPro = FindFirstObjectByType<CompassPro>();
+            if (_compassNavigatorPro == null) 
+                UnityEngine.Debug.LogWarning("CompassPro component not found in the scene.");
+        }
 
 
         public void UseTool(RaycastHit hit)
@@ -39,6 +49,7 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
             EquipmentEvent.Trigger(EquipmentEventType.ChangeToEquipment, ToolType.Scanner);
             useFeedbacks?.PlayFeedbacks();
             highlightEffect.highlighted = true;
+            _compassNavigatorPro.Scan();
         }
 
         public bool CanInteractWithTextureIndex(int index)
@@ -73,11 +84,7 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
 
         public void HideCooldownBar()
         {
-            // if (cooldownBar != null)
-            // {
-            //     cooldownBar.gameObject.SetActive(false);
-            //     cooldownBar.UpdateBar01(0f);
-            // } 
+
         }
     }
 }
