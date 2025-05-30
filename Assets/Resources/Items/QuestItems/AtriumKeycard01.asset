@@ -15,9 +15,9 @@ MonoBehaviour:
   ItemID: AtriumKeycard01
   ItemName: 'Keycard '
   ItemDescription: 
-  ItemIcon: {fileID: 0}
-  ItemWeight: 0
-  ItemValue: 0
-  ItemType: 0
+  ItemIcon: {fileID: 21300000, guid: 87f76e7c4e4cb7442b297e57ba630840, type: 3}
+  ItemWeight: 0.06
+  ItemValue: 100
+  ItemType: 4
   objectiveId: 
-  doorId: 
+  doorId: L1D2ATR

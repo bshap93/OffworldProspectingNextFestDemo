@@ -9,7 +9,8 @@ namespace Domains.Items.Scripts
         Ore,
         Bundle,
         Stone,
-        Crystal
+        Crystal,
+        Keycard,
     }
 
     [CreateAssetMenu(fileName = "BaseItem", menuName = "Scriptable Objects/Items/BaseItem")]
