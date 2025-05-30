@@ -1677,8 +1677,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundClips:
-  - {fileID: 8300000, guid: 683691ba65e81ce42ad7a1c03db8599d, type: 3}
-  - {fileID: 8300000, guid: 1ec979220fdddd54aacc00538c0c078f, type: 3}
+  - {fileID: 8300000, guid: f25d4382c8401164daa6d2a0516af499, type: 3}
+  - {fileID: 8300000, guid: b6dd2414a9c7ec5478f390d9b18fac72, type: 3}
   Loop: 1
   ID: 255
   volume: 0.681

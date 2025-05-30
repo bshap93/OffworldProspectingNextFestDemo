@@ -1,61 +1,46 @@
 using DG.Tweening;
+using Domains.Scripts_that_Need_Sorting;
 using UnityEngine;
 
 public class ConditionalDoor : MonoBehaviour
 {
     [SerializeField] private GameObject screenMonitor;
+    
+    [SerializeField] string doorId;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private Material inactiveMaterial;
     [SerializeField] private Material activeMaterial;
 
-    [SerializeField] private bool startActive;
+    [SerializeField] public bool startActive;
 
-    [SerializeField] private GameObject leftDoor;
-    [SerializeField] private GameObject rightDoor;
 
-    [SerializeField] private Vector3 leftDoorMove;
-    [SerializeField] private Vector3 rightDoorMove;
+    [SerializeField] DoorsController doorsController;
+
+    [SerializeField] private bool isLocked;
 
     private bool isActive;
 
-    private void Start()
+
+    
+    public bool GetLockedState()
     {
-        if (startActive)
-            SetActive();
+        return isLocked;
+    }
+
+    
+    public void SetLocked(bool locked)
+    {
+        isLocked = locked;
+        if (isLocked)
+        {
+            screenMonitor.GetComponent<Renderer>().material = inactiveMaterial;
+
+        }
         else
-            SetInactive();
-    }
+        {
+            screenMonitor.GetComponent<Renderer>().material = activeMaterial;
 
-    public void SetActive()
-    {
-        isActive = true;
-        screenMonitor.GetComponent<Renderer>().material = activeMaterial;
-        if (leftDoor != null)
-            SlideLeftDoor(leftDoor, true);
-        if (rightDoor != null)
-            SlideRightDoor(rightDoor, true);
-
-        // Temporary
-        leftDoor.SetActive(false);
-        rightDoor.SetActive(false);
-    }
-
-    public void SetInactive()
-    {
-        isActive = false;
-        screenMonitor.GetComponent<Renderer>().material = inactiveMaterial;
-    }
-
-    private void SlideLeftDoor(GameObject door, bool open)
-    {
-        if (open)
-            leftDoor.transform.DOMoveX(leftDoorMove.x, 1);
-    }
-
-    private void SlideRightDoor(GameObject door, bool open)
-    {
-        if (open)
-            rightDoor.transform.DOMoveX(rightDoorMove.x, 1);
+        }
     }
 }
