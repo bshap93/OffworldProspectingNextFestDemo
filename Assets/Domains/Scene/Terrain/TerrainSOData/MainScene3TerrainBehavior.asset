@@ -15,29 +15,27 @@ MonoBehaviour:
   terrainChoices:
   - terrainLayerIndex: 14
     terrainToUseInstead: 11
-  - terrainLayerIndex: 0
-    terrainToUseInstead: 0
   defaultLayerAboveDepths:
-  - playerDepth: 0
+  - playerDepth: -4
     defaultLayerIndex: 13
     alternateAcceptableLayerIndices: 01000000020000000300000004000000050000000600000007000000090000000a0000000b0000000c0000000e0000000f000000
-  - playerDepth: -5
-    defaultLayerIndex: 13
-    alternateAcceptableLayerIndices: 
   - playerDepth: -9
     defaultLayerIndex: 11
     alternateAcceptableLayerIndices: 03000000
   - playerDepth: -18
     defaultLayerIndex: 6
-    alternateAcceptableLayerIndices: 0900000004000000
+    alternateAcceptableLayerIndices: 
   - playerDepth: -27
+    defaultLayerIndex: 2
+    alternateAcceptableLayerIndices: 
+  - playerDepth: -35
     defaultLayerIndex: 7
-    alternateAcceptableLayerIndices: 080000000f000000090000000500000004000000
-  - playerDepth: -40
+    alternateAcceptableLayerIndices: 0800000009000000
+  - playerDepth: -48
+    defaultLayerIndex: 9
+    alternateAcceptableLayerIndices: 
+  - playerDepth: -60
     defaultLayerIndex: 15
-    alternateAcceptableLayerIndices: 0400000005000000
-  - playerDepth: -55
-    defaultLayerIndex: 5
     alternateAcceptableLayerIndices: 0800000007000000060000000500000004000000
   - playerDepth: -75
     defaultLayerIndex: 8
