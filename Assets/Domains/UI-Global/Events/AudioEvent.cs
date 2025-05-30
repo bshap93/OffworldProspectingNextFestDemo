@@ -6,7 +6,9 @@ namespace Domains.UI_Global.Events
     {
         ChangeVolume,
         Mute,
-        Unmute
+        Unmute, 
+        PlayNextMusicClip,
+        PlaySpecificMusicClip,
     }
 
     public struct AudioEvent
@@ -14,12 +16,14 @@ namespace Domains.UI_Global.Events
         private static AudioEvent _e;
         public AudioEventType EventType;
         public float Value;
+        public int ClipIndex; // For specific clip playback
 
 
-        public static void Trigger(AudioEventType eventType, float value)
+        public static void Trigger(AudioEventType eventType, float value, int clipIndex = -1)
         {
             _e.EventType = eventType;
             _e.Value = value;
+            _e.ClipIndex = clipIndex;
 
             MMEventManager.TriggerEvent(_e);
         }

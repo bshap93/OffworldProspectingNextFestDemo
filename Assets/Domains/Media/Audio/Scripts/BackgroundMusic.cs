@@ -3,7 +3,7 @@ using Domains.UI_Global.Events;
 using MoreMountains.Tools;
 using UnityEngine;
 
-namespace Domains.Audio.Scripts
+namespace Domains.Media.Audio.Scripts
 {
     public class BackgroundMusic : MonoBehaviour, MMEventListener<AudioEvent>
     {
@@ -59,6 +59,31 @@ namespace Domains.Audio.Scripts
 
             MMSoundManagerSoundPlayEvent.Trigger(clip, options);
 
+            _nextClipTime = Time.time + clip.length;
+            _isPlaying = true;
+        }
+        
+        public void PlaySpecificClip(int clipIndex, bool loop)
+        {
+            // Validate index bounds
+            if (clipIndex < 0 || clipIndex >= SoundClips.Length)
+            {
+                return;
+            }
+    
+            _currentClipIndex = clipIndex;
+    
+            var clip = SoundClips[_currentClipIndex];
+            var options = MMSoundManagerPlayOptions.Default;
+            options.ID = ID;
+            options.Loop = loop; // Use the class's Loop setting for consistency
+            options.Location = Vector3.zero;
+            options.MmSoundManagerTrack = MMSoundManager.MMSoundManagerTracks.Music;
+            options.Volume = volume;
+    
+            MMSoundManagerSoundPlayEvent.Trigger(clip, options);
+    
+            // Update timing to prevent Update() from immediately triggering PlayNextClip
             _nextClipTime = Time.time + clip.length;
             _isPlaying = true;
         }
