@@ -51,7 +51,7 @@ namespace Domains.Scripts_that_Need_Sorting
         }
 
         public abstract void OpenDoors();
-
+ 
         public abstract void CloseDoors();
     }
 }
