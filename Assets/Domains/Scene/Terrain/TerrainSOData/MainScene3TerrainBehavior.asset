@@ -41,20 +41,14 @@ MonoBehaviour:
     defaultLayerIndex: 8
     alternateAcceptableLayerIndices: 070000000800000004000000
   terrainDigParticlePrefabs:
-  - terrainLayerIndex: 13
-    primaryPrefab: {fileID: 6948713295122520351, guid: dd71b63c997ed704aa0f74c0bf4c3630, type: 3}
-    secondaryPrefab: {fileID: 0}
-  - terrainLayerIndex: 14
-    primaryPrefab: {fileID: 6948713295122520351, guid: db85a5e1875c53a4696335a6852c27f6, type: 3}
-    secondaryPrefab: {fileID: 0}
   - terrainLayerIndex: 1
     primaryPrefab: {fileID: 6948713295122520351, guid: ff83ac7d45bf1494ba86ead6bc95d4c6, type: 3}
     secondaryPrefab: {fileID: 0}
-  - terrainLayerIndex: 11
-    primaryPrefab: {fileID: 6948713295122520351, guid: db85a5e1875c53a4696335a6852c27f6, type: 3}
-    secondaryPrefab: {fileID: 0}
   - terrainLayerIndex: 2
     primaryPrefab: {fileID: 6437319496211714369, guid: d50d576144cfdd14abb0ce8c5e95ba75, type: 3}
+    secondaryPrefab: {fileID: 0}
+  - terrainLayerIndex: 4
+    primaryPrefab: {fileID: 6437319496211714369, guid: 3c3c9bdc9479a984780cc9751e6a62ba, type: 3}
     secondaryPrefab: {fileID: 0}
   - terrainLayerIndex: 6
     primaryPrefab: {fileID: 6437319496211714369, guid: f1f46180bf8d6fe42bbe429eaeb5f03e, type: 3}
@@ -67,5 +61,17 @@ MonoBehaviour:
     secondaryPrefab: {fileID: 0}
   - terrainLayerIndex: 10
     primaryPrefab: {fileID: 6437319496211714369, guid: 4a0d6bfe10d32104f91ce7560ebf7a0d, type: 3}
+    secondaryPrefab: {fileID: 0}
+  - terrainLayerIndex: 11
+    primaryPrefab: {fileID: 6948713295122520351, guid: db85a5e1875c53a4696335a6852c27f6, type: 3}
+    secondaryPrefab: {fileID: 0}
+  - terrainLayerIndex: 13
+    primaryPrefab: {fileID: 6948713295122520351, guid: dd71b63c997ed704aa0f74c0bf4c3630, type: 3}
+    secondaryPrefab: {fileID: 0}
+  - terrainLayerIndex: 14
+    primaryPrefab: {fileID: 6948713295122520351, guid: db85a5e1875c53a4696335a6852c27f6, type: 3}
+    secondaryPrefab: {fileID: 0}
+  - terrainLayerIndex: 15
+    primaryPrefab: {fileID: 6437319496211714369, guid: f270fe924914e4b4d96a8e8e8ce102d9, type: 3}
     secondaryPrefab: {fileID: 0}
   defaultDigParticlePrefab: {fileID: 6948713295122520351, guid: db85a5e1875c53a4696335a6852c27f6, type: 3}
