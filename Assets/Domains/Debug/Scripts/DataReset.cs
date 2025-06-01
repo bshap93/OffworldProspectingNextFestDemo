@@ -1,3 +1,4 @@
+using Domains.Gameplay.Managers.Messages;
 using Domains.Gameplay.Objectives.Scripts;
 using Domains.Player.Progression;
 using Domains.Player.Scripts;
@@ -49,10 +50,14 @@ namespace Domains.Debug
             // Reset progression
             ProgressionManager.ResetProgression();
             ProgressionManager.SaveAllProgression(true);
-            
+
             // Reset objectives
             ObjectivesManager.ResetObjectives();
             ObjectivesManager.SaveAllObjectives();
+
+            // Reset messages
+            MessageManager.ResetMessages();
+            MessageManager.SaveAllMessages();
 
 
             // ES3.Save("DataWasReset", true, "GameSave.es3");

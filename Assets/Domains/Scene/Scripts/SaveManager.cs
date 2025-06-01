@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Domains.Gameplay.Managers.Messages;
 using Domains.Gameplay.Objectives.Scripts;
 using Domains.Player.Progression;
 using Domains.Player.Scripts;
@@ -19,6 +20,7 @@ namespace Domains.Scene.Scripts
         public const string SavePickablesFileName = "Pickables.es3";
         public const string SaveProgressionFilePath = "Progression.es3";
         public const string SaveObjectivesFilePath = "Objectives.es3";
+        public const string SaveMessagesFilePath = "Messages.es3";
 
 
         // [Header("Persistence Managers")] [SerializeField]
@@ -49,8 +51,11 @@ namespace Domains.Scene.Scripts
 
         public ObjectivesManager objectivesManager;
 
+        public MessageManager messageManager;
+
 
         public static SaveManager Instance { get; private set; }
+
 
         private void Awake()
         {
@@ -61,38 +66,6 @@ namespace Domains.Scene.Scripts
             }
 
             Instance = this;
-
-
-            // // Initialize managers if needed
-            // if (pickableManager == null)
-            // {
-            //     pickableManager = GetComponentInChildren<PickableManager>(true);
-            //     if (pickableManager == null)
-            //     {
-            //         var pickableGo = new GameObject("PickableManager");
-            //         pickableManager = pickableGo.AddComponent<PickableManager>();
-            //         pickableGo.transform.SetParent(transform);
-            //     }
-            // }
-            //
-            // if (playerInventoryManager == null)
-            // {
-            //     playerInventoryManager = GetComponentInChildren<PlayerInventoryManager>(true);
-            //     if (playerInventoryManager == null)
-            //     {
-            //         var inventoryGo = new GameObject("PlayerInventoryManager");
-            //         playerInventoryManager = inventoryGo.AddComponent<PlayerInventoryManager>();
-            //         inventoryGo.transform.SetParent(transform);
-            //     }
-            // }
-            //
-            //
-            // if (playerFuelManager == null)
-            // {
-            //     playerFuelManager = GetComponentInChildren<PlayerFuelManager>(true);
-            //     if (playerFuelManager == null)
-            //         UnityEngine.Debug.LogError("PlayerFuelManager not found in SaveManager");
-            // }
         }
 
 
@@ -139,6 +112,7 @@ namespace Domains.Scene.Scripts
             PickableManager.SaveAllPickedItems();
             DestructableManager.SaveAllDestructables();
             ObjectivesManager.SaveAllObjectives();
+            MessageManager.SaveAllMessages();
 
 
             ProgressionManager.SaveAllProgression(false);
@@ -159,6 +133,7 @@ namespace Domains.Scene.Scripts
             var destructablesLoaded = destructableManager != null && destructableManager.HasSavedData();
             var progressionLoaded = progressionManager != null && progressionManager.HasProgressionData();
             var objectivesLoaded = objectivesManager != null && objectivesManager.HasSavedData();
+            var messagesLoaded = messageManager != null && messageManager.HasSavedData();
 
 
             // Digger has no Load method
@@ -172,6 +147,7 @@ namespace Domains.Scene.Scripts
             if (destructablesLoaded) destructableManager.LoadDestructables();
             if (progressionLoaded) progressionManager.LoadProgressionObjectivesState();
             if (objectivesLoaded) objectivesManager.LoadObjectives();
+            if (messagesLoaded) messageManager.LoadMessages();
 
 
             // 3rd Party
@@ -179,7 +155,8 @@ namespace Domains.Scene.Scripts
 
             return fuelLoaded ||
                    healthLoaded || inventoryLoaded || currencyLoaded ||
-                   upgradesLoaded || pickablesLoaded || destructablesLoaded || progressionLoaded;
+                   upgradesLoaded || pickablesLoaded || destructablesLoaded || progressionLoaded ||
+                   objectivesLoaded || messagesLoaded;
         }
 
         public void CallSaveThenWait()

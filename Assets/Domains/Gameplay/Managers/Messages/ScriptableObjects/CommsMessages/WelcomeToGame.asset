@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce150a61ba864ef4b0dbb22031cdb2f9, type: 3}
+  m_Name: WelcomeToGame
+  m_EditorClassIdentifier: 
+  commsMessageIcon: {fileID: 0}
+  commsMessageId: WelcomeToGame
+  commsMessageImage: {fileID: 0}
+  commsMessageRawBodyText: "Congratulations and welcome to your new prospect! We
+    hope your pre-fabricated BrightHope(TM) mobile prospecting outpost is to your
+    liking. We are pleased to have you as our eighth customer here on L 98-59 b.
+    \n\nYour outpost was built on top of an older outpost of a grandfather-era terraforming
+    operation. Of course, that terraforming did change the landscape quite a bit,
+    and anything of theirs is now below the new surface of the planet. \n\nYou're
+    here to dig and find any artifacts from and investigate any signals that might
+    promise grandfather-era tech, and of course, mine for resources. We will happily
+    compensate you for each artifact and of course pay you for the valuable items
+    you mine. \n"
+  commsMessageRawTitleText: <bounce>Welcome to L 98-59</bounce>
+  senderName: 'Gillian Nades,
+
+    DovTech Celestial Holdings
+
+    Volans Branch'

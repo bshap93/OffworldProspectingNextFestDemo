@@ -1,4 +1,5 @@
-﻿using Domains.UI_Global.Events;
+﻿using System;
+using Domains.UI_Global.Events;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace Domains.Input.Scripts
 {
     public class InfoPanelActivator : MonoBehaviour, MMEventListener<UIEvent>
     {
+        public string uniqueID;
+
         [Tooltip("Prefab to show when the object is looked at.")]
         public GameObject infoPanelPrefab;
 
@@ -29,6 +32,11 @@ namespace Domains.Input.Scripts
         private GameObject _infoPanelInstance;
 
         private bool _isPanelVisible;
+
+        private void Awake()
+        {
+            if (string.IsNullOrEmpty(uniqueID)) uniqueID = Guid.NewGuid().ToString(); // Generate only if unset
+        }
 
         private void OnEnable()
         {

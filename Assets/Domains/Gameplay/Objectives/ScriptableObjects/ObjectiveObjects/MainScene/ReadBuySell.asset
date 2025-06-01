@@ -15,5 +15,5 @@ MonoBehaviour:
   objectiveId: ReadBuySell
   objectiveText: Visit the Trade Station
   activateWhenCompleted:
-  - GetJetpack
+  - CheckMail
   numberOfObjectives: 1

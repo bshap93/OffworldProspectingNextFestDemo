@@ -1,5 +1,5 @@
-using Domains.Input.Scripts;
 using Domains.Player.Events;
+using Domains.Player.Interaction;
 using Domains.Player.Scripts;
 using Domains.UI_Global.Events;
 using MoreMountains.Feedbacks;
@@ -8,12 +8,11 @@ using UnityEngine;
 
 namespace Domains.UI_Global.Scripts
 {
-    public class FuelConsole : MonoBehaviour, MMEventListener<UIEvent>
+    public class FuelConsole : ExplainedConsole, MMEventListener<UIEvent>
     {
         public int fuelPricePerUnit = 10;
         [SerializeField] private MMFeedbacks buyFuelFeedbacks;
 
-        [SerializeField] private InfoPanelActivator infoPanelActivator;
 
         public bool hasBeenIntroduced;
         private FuelUIController fuelUIController;
@@ -38,19 +37,6 @@ namespace Domains.UI_Global.Scripts
             this.MMEventStopListening();
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (!hasBeenIntroduced)
-            {
-                hasBeenIntroduced = true;
-                infoPanelActivator?.ShowInfoPanel();
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (hasBeenIntroduced) infoPanelActivator?.HideInfoPanel();
-        }
 
         public void OnMMEvent(UIEvent eventType)
         {
