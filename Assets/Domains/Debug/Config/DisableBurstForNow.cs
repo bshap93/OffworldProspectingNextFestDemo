@@ -11,6 +11,8 @@ namespace Domains.Debug.Config
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void DisableBurstForNow()
         {
+            return;
+
             // Grab the one global options object Unity creates
             var options = BurstCompiler.Options;
             options.EnableBurstCompilation = false; // <- instance property
