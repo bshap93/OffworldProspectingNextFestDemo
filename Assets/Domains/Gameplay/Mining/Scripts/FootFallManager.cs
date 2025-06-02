@@ -1,5 +1,4 @@
-﻿using Domains.Player.Events;
-using Domains.Player.Scripts;
+﻿using Domains.Player.Scripts;
 using Lightbug.CharacterControllerPro.Core;
 using MoreMountains.Feedbacks;
 using UnityEngine;
@@ -106,12 +105,8 @@ namespace Domains.Gameplay.Mining.Scripts
                 case 7:
                 case 8:
                 case 9:
-                    rockFootstepFeedbacks?.PlayFeedbacks();
-                    break;
                 case 5:
-                    lavaFootstepFeedbacks?.PlayFeedbacks();
-                    HealthEvent.Trigger(HealthEventType.ConsumeHealth,
-                        4f, HealthEventReason.LavaDamage);
+                    rockFootstepFeedbacks?.PlayFeedbacks();
                     break;
 
 

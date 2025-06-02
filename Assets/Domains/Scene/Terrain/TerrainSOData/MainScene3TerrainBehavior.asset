@@ -38,7 +38,7 @@ MonoBehaviour:
     defaultLayerIndex: 15
     alternateAcceptableLayerIndices: 0800000007000000060000000500000004000000
   - playerDepth: -75
-    defaultLayerIndex: 8
+    defaultLayerIndex: 5
     alternateAcceptableLayerIndices: 070000000800000004000000
   terrainDigParticlePrefabs:
   - terrainLayerIndex: 1
