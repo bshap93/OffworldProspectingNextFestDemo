@@ -3,6 +3,7 @@ using Domains.Gameplay.Equipment.Events;
 using Domains.Gameplay.Equipment.Scripts;
 using Domains.Player.Events;
 using Domains.Scripts_that_Need_Sorting;
+using Domains.UI_Global.Events;
 using HighlightPlus;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
@@ -29,7 +30,7 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
         private TerrainLayerDetector terrainLayerDetector;
 
         [SerializeField] private LayerMask playerMask;
-        [SerializeField] private float maxToolRange = 5f;
+        [SerializeField] public float maxToolRange = 5f;
         [SerializeField] private Camera mainCamera;
         private CompassPro _compassNavigatorPro;
         private Coroutine CooldownCoroutine;
@@ -77,6 +78,7 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
             useFeedbacks?.PlayFeedbacks();
             highlightEffect.highlighted = true;
             _compassNavigatorPro.Scan();
+            UnityEngine.Debug.Log("Scanned with range " + maxToolRange);
 
             CooldownCoroutine = StartCoroutine(cooldownProgressBar.ShowCooldownBarCoroutine(scanningCooldown));
         }
@@ -118,16 +120,17 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
 
         public void OnMMEvent(UpgradeEvent eventType)
         {
-            if (eventType.EventType == UpgradeEventType.ScannerSet)
-            {
-                SetScannerRange(eventType.EffectValue);
-                SetCurrentMaterial(eventType.CurrentMaterial);
-            }
+            // if (eventType.EventType == UpgradeEventType.ScannerSet)
+            // {
+            //     SetScannerRange(eventType.EffectValue);
+            //     SetCurrentMaterial(eventType.CurrentMaterial);
+            // }
         }
 
         public void SetScannerRange(float newScannerRange)
         {
             maxToolRange = newScannerRange;
+            AlertEvent.Trigger(AlertReason.ScanningRangeIncreased, "Scanner range increased to " + newScannerRange);
         }
 
         public void SetCurrentMaterial(Material upgradeMaterial)
