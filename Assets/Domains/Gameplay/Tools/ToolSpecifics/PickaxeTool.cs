@@ -535,8 +535,7 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
                         digPositionFirst,
                         textureIndex,
                         safeOpacity,
-                        safeRadius,
-                        BrushType.Stalagmite));
+                        safeRadius));
 
                     // Effects
                     TriggerDebrisEffect(debrisEffectFirstHitPrefab, hit);

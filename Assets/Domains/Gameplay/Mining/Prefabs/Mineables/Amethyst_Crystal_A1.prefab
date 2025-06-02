@@ -357,6 +357,8 @@ GameObject:
   - component: {fileID: 8067893411223667019}
   - component: {fileID: 6113922088845443717}
   - component: {fileID: 7669685251245363141}
+  - component: {fileID: 2746227779848905018}
+  - component: {fileID: 6903356137075238000}
   m_Layer: 13
   m_Name: Amethyst_Crystal_A1
   m_TagString: Untagged
@@ -542,7 +544,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OreHardness: 0
-  UniqueID: ba4dddac-01d7-433e-ac92-696be6359fd3
+  UniqueID: ec75d5d1-e3dc-48f5-a355-ebc87a833b79
   failHitFeedbacks: {fileID: 0}
   failHitParticles: {fileID: 6835221663383594993, guid: c14ae236c4c9aed41ba307d978ef96ee, type: 3}
   oreHitParticles: {fileID: 6835221663383594993, guid: c14ae236c4c9aed41ba307d978ef96ee, type: 3}
@@ -773,6 +775,9 @@ MonoBehaviour:
   volumeLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  terrainOcclusionMask:
+    serializedVersion: 2
+    m_Bits: 0
   selectOnClick: 0
   selectedProfile: {fileID: 0}
   selectedAndHighlightedProfile: {fileID: 0}
@@ -791,11 +796,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb18bd15cc5eb54dbddc9772eb732ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 02d2484f-7754-4c32-b111-6e8f261354d3
+  targetID: f08643cf-9812-4eeb-acd5-f6c88380fbf8
   onScanned:
     m_PersistentCalls:
       m_Calls: []
   targetDuration: 3
+--- !u!54 &2746227779848905018
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4288128848412771647}
+  serializedVersion: 4
+  m_Mass: 0.5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &6903356137075238000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4288128848412771647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b824c3800bbbcf64da11f8500382b46c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRigidbody: {fileID: 2746227779848905018}
+  makeKinematicWhenDisabled: 1
+  enabledEffect: {fileID: 6835221663383594993, guid: b8a54362331cc5f47ad0a2944e5d9a0e, type: 3}
+  enabledFeedbacks: {fileID: 0}
 --- !u!1 &5230576383020181172
 GameObject:
   m_ObjectHideFlags: 0
