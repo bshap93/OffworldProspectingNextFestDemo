@@ -12,15 +12,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b82d13edcd624048b3e42078ab62b87, type: 3}
   m_Name: ScannerUpgrade
   m_EditorClassIdentifier: 
-  upgradeTypeName: 
-  upgradeNames: []
+  upgradeTypeName: Scanner
+  upgradeNames:
+  - Scanner LV1
+  - Scanner LV2
+  - Scanner LV3
+  - Scanner LV4
   description: 
-  upgradeCosts: 
-  upgradeColors: []
-  upgradeMaterials: []
-  upgradeSounds: []
-  effectTypes: 
-  effectValues: []
-  toolChangeIDs: []
-  secondaryEffectTypes: 
-  secondaryEffectValues: []
+  upgradeCosts: b0040000980800003011000028230000
+  upgradeColors:
+  - {r: 0.014813383, g: 0.67295593, b: 0.061269637, a: 1}
+  - {r: 0, g: 0.10374492, b: 0.9433962, a: 1}
+  - {r: 0.34586883, g: 0.035975583, b: 0.67295593, a: 1}
+  - {r: 0.9748427, g: 0.7363685, b: 0.25444004, a: 1}
+  upgradeMaterials:
+  - {fileID: 2100000, guid: 9b8e35da50272114cae6a7ee960d803b, type: 2}
+  - {fileID: 2100000, guid: 923908696b4223140a686aca8caf2811, type: 2}
+  - {fileID: 2100000, guid: e296795c0d9cae4428cb33828ddcb0ba, type: 2}
+  - {fileID: 2100000, guid: c6d40ec73cdd7044ca401e03d9c23c37, type: 2}
+  upgradeSounds:
+  - {fileID: 8300000, guid: 920bb84fd90826d45a89034e4bf21e09, type: 3}
+  - {fileID: 8300000, guid: 920bb84fd90826d45a89034e4bf21e09, type: 3}
+  - {fileID: 8300000, guid: 920bb84fd90826d45a89034e4bf21e09, type: 3}
+  - {fileID: 8300000, guid: 920bb84fd90826d45a89034e4bf21e09, type: 3}
+  effectTypes: 00000000000000000000000000000000
+  effectValues:
+  - 1.4
+  - 1.4
+  - 1.4
+  - 1.4
+  toolChangeIDs:
+  - 
+  - 
+  - 
+  - 
+  secondaryEffectTypes: 00000000000000000000000000000000
+  secondaryEffectValues:
+  - 1
+  - 1
+  - 1
+  - 1

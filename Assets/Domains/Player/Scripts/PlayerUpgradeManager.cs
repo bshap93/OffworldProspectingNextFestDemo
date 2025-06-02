@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CompassNavigatorPro;
 using Domains.Gameplay.Equipment.Scripts;
 using Domains.Gameplay.Mining.Scripts;
 using Domains.Gameplay.Tools.ToolSpecifics;
@@ -25,6 +26,7 @@ namespace Domains.Player.Scripts
         private static float shovelToolEffectOpacity = 10f;
         private static float pickaxeToolEffectRadius = 0.4f;
         private static float pickaxeToolEffectOpacity = 10f;
+        private static float scannerRange = 5f;
 
         private static float jetPackSpeedMultiplier = 1.22f;
 
@@ -36,6 +38,9 @@ namespace Domains.Player.Scripts
         private static int shovelMaterialLevel;
         private static int pickaxeMaterialLevel;
         private static int jetPackMaterialLevel;
+        private static int scannerLevel;
+
+        private static ScanProfile scannerProfile;
 
         private static float fuelCapacity = 100f;
         private static string currentToolId = "Shovel";
@@ -45,9 +50,15 @@ namespace Domains.Player.Scripts
         private static ShovelTool shovelTool;
         private static MyNormalMovement playerMovement;
         private static ParticleSystem jetPackParticleSystem;
+        private static ScannerTool scannerTool;
+        private static CompassPro compassNavigator;
 
         [SerializeField] private ShovelTool shovelToolIn;
         [SerializeField] private PickaxeTool pickaxeToolIn;
+        [SerializeField] private ScannerTool scannerToolIn;
+
+        [SerializeField] private ScannerProfileList scannerProfileList;
+        [SerializeField] private CompassPro compassNavigatorIn;
 
 
         // ---------------------------------------------------------
@@ -136,6 +147,34 @@ namespace Domains.Player.Scripts
                 if (jetPackParticleSystem == null)
                     UnityEngine.Debug.LogWarning("JetPackParticleSystem not found. Upgrades may not apply correctly.");
             }
+
+            if (scannerTool == null)
+            {
+                scannerTool = scannerToolIn;
+                if (scannerTool == null)
+                    scannerTool = FindScannerTool();
+                if (scannerTool == null)
+                    UnityEngine.Debug.LogWarning("ScannerTool not found. Upgrades may not apply correctly.");
+            }
+
+            if (compassNavigator == null)
+            {
+                compassNavigator = compassNavigatorIn;
+                if (compassNavigator == null)
+                    compassNavigator = FindFirstObjectByType<CompassPro>();
+                if (compassNavigator == null)
+                    UnityEngine.Debug.LogWarning("CompassNavigator not found. Upgrades may not apply correctly.");
+            }
+        }
+
+        private ScannerTool FindScannerTool()
+        {
+            foreach (var tool in PlayerEquipment.Instance.Tools)
+                if (tool is ScannerTool scanner)
+                    return scanner;
+
+            UnityEngine.Debug.LogWarning("No ScannerTool found in PlayerEquipment.");
+            return null;
         }
 
         private void InitializeDefaultValues()
@@ -145,16 +184,21 @@ namespace Domains.Player.Scripts
             shovelToolEffectOpacity = characterStatProfile.initialShovelToolEffectOpacity;
             shovelToolWidth = characterStatProfile.shovelMiningToolWidth;
 
+
             pickaxeMiningToolWidth = characterStatProfile.pickaxeMiningToolWidth;
             pickaxeToolEffectRadius = characterStatProfile.initialPickaxeToolEffectRadius;
             pickaxeToolEffectOpacity = characterStatProfile.pickaxeMiningToolEffectOpacity;
 
             jetPackSpeedMultiplier = characterStatProfile.initialJetPackSpeedMultiplier;
 
+            scannerRange = characterStatProfile.initialScannerRange;
+            scannerProfile = characterStatProfile.initialScanProfile;
+
             // Reset material levels (0 = initial/no upgrades)
             shovelMaterialLevel = 0;
             pickaxeMaterialLevel = 0;
             jetPackMaterialLevel = 0;
+            scannerLevel = 0;
         }
 
         private PickaxeTool FindPickaxeTool()
@@ -259,6 +303,8 @@ namespace Domains.Player.Scripts
                 case "Pickaxe": return UpgradeType.Pickaxe;
                 case "Endurance": return UpgradeType.Endurance;
                 case "Inventory": return UpgradeType.Inventory;
+                case "Jetpack": return UpgradeType.Jetpack;
+                case "Scanner": return UpgradeType.Scanner;
                 default: return UpgradeType.None;
             }
         }
@@ -270,7 +316,7 @@ namespace Domains.Player.Scripts
             var toolId = effectType == UpgradeEffectType.ToolChange ? upgrade.toolChangeIDs[level] : null;
             var secondaryEffectType = upgrade.secondaryEffectTypes[level];
             var secondaryEffectValue = upgrade.secondaryEffectValues[level];
-
+            var scannerProfile = scannerProfileList.scannerProfiles[level];
             Color upgradeColor;
             if (upgrade.upgradeColors.Length > level)
                 upgradeColor = upgrade.upgradeColors[level];
@@ -321,6 +367,9 @@ namespace Domains.Player.Scripts
                 case "Jetpack":
                     ApplyJetpackUpgrade(level, multiplier, secondaryMultiplier, upgradeMaterial);
                     break;
+                case "Scanner":
+                    ApplyScannerUpgrade(level, multiplier, secondaryMultiplier, upgradeMaterial);
+                    break;
             }
         }
 
@@ -330,6 +379,40 @@ namespace Domains.Player.Scripts
             var newSpeedMultiplier = jetPackSpeedMultiplier * multiplier;
             playerMovement.jetPackSpeedMultiplier = newSpeedMultiplier;
             jetPackParticleSystem.startColor = upgradeMaterial.color;
+        }
+
+        private void ApplyScannerUpgrade(int level, float multiplier, float secondaryMultiplier,
+            Material upgradeMaterial)
+        {
+            var newScannerRange = scannerRange * multiplier;
+
+            scannerTool.SetScannerRange(newScannerRange);
+            scannerRange = newScannerRange;
+
+            compassNavigator.scanProfile = scannerProfileList.scannerProfiles[level];
+
+            if (upgradeMaterial != null)
+            {
+                scannerTool.SetCurrentMaterial(upgradeMaterial);
+                scannerLevel = level;
+                ES3.Save("ScannerLevel", scannerLevel, "UpgradeSave.es3"); // ✅ REQUIRED
+
+                UnityEngine.Debug.Log($"Applied scanner material upgrade to level {level}: {upgradeMaterial.name}");
+            }
+        }
+
+        // Helper method to calculate cumulative multiplier
+        private float GetCumulativeMultiplier(string upgradeType, int targetLevel)
+        {
+            var upgrade = availableUpgrades.Find(u => u.upgradeTypeName == upgradeType);
+            if (upgrade == null) return 1f;
+
+            var cumulativeMultiplier = 1f;
+            for (var i = 0; i < targetLevel && i < upgrade.effectValues.Length; i++)
+                if (upgrade.effectTypes[i] == UpgradeEffectType.Multiplier)
+                    cumulativeMultiplier *= upgrade.effectValues[i];
+
+            return cumulativeMultiplier;
         }
 
         private void ApplyEnduranceUpgrade(float multiplier)
@@ -492,6 +575,10 @@ namespace Domains.Player.Scripts
             ES3.Save("MaxStamina", PlayerFuelManager.MaxFuelPoints, "UpgradeSave.es3");
             ES3.Save("MaxFuelCapacity", fuelCapacity, "UpgradeSave.es3");
             ES3.Save("InventoryMaxWeight", PlayerInventoryManager.GetMaxWeight(), "GameSave.es3");
+
+            ES3.Save("ScannerToolRange", scannerRange, "UpgradeSave.es3");
+            ES3.Save("ScannerLevel", scannerLevel, "UpgradeSave.es3");
+            // ES3.Save("ScannerLevel", scannerLevel, "UpgradeSave.es3");
         }
 
 
@@ -530,6 +617,9 @@ namespace Domains.Player.Scripts
             shovelToolEffectOpacity = characterStatProfile.initialShovelToolEffectOpacity;
             pickaxeToolEffectRadius = characterStatProfile.initialPickaxeToolEffectRadius;
             pickaxeToolEffectOpacity = characterStatProfile.pickaxeMiningToolEffectOpacity;
+            jetPackSpeedMultiplier = characterStatProfile.initialJetPackSpeedMultiplier;
+            scannerRange = characterStatProfile.initialScannerRange;
+            scannerProfile = characterStatProfile.initialScanProfile;
 
             // Apply the effects to tools
             if (shovelTool != null)
@@ -602,6 +692,29 @@ namespace Domains.Player.Scripts
             if (ES3.KeyExists("JetPackMaterialLevel", "UpgradeSave.es3"))
                 jetPackMaterialLevel = ES3.Load<int>("JetPackMaterialLevel", "UpgradeSave.es3");
 
+            if (ES3.KeyExists("ScannerToolRange", "UpgradeSave.es3"))
+                scannerRange = ES3.Load<float>("ScannerToolRange", "UpgradeSave.es3");
+
+            if (ES3.KeyExists("ScannerLevel", "UpgradeSave.es3"))
+                scannerLevel = ES3.Load<int>("ScannerLevel", "UpgradeSave.es3");
+
+            if (ES3.KeyExists("ScannerLevel", "UpgradeSave.es3"))
+                scannerProfile =
+                    scannerProfileList.scannerProfiles[scannerLevel];
+
+            if (scannerTool != null)
+            {
+                scannerTool.SetScannerRange(scannerRange);
+                UnityEngine.Debug.Log($"Loaded scanner range: {scannerRange}");
+            }
+
+            if (compassNavigator != null)
+            {
+                compassNavigator.scanProfile = scannerProfile;
+                UnityEngine.Debug.Log($"Loaded scanner profile: {scannerProfile.name}");
+            }
+
+
             // Apply shovel properties
             if (shovelTool != null)
                 shovelTool.SetDiggerUsingToolEffectSize(shovelToolEffectRadius, shovelToolEffectOpacity);
@@ -647,17 +760,10 @@ namespace Domains.Player.Scripts
                 PlayerInventoryManager.SetWeightLimit(characterStatProfile.InitialWeightLimit);
             }
 
-            // if (PlayerInventoryManager.PlayerInventory != null)
-            //     InventoryEvent.Trigger(
-            //         InventoryEventType.UpgradedWeightLimit,
-            //         PlayerInventoryManager.PlayerInventory,
-            //         characterStatProfile.InitialWeightLimit
-            //     );
-            // else
-            //     UnityEngine.Debug.LogWarning("Cannot trigger InventoryEvent: PlayerInventory is null");
-
             if (ES3.KeyExists("CurrentToolID", "UpgradeSave.es3"))
                 currentToolId = ES3.Load<string>("CurrentToolID", "UpgradeSave.es3");
+
+            ApplyMaterialsBasedOnLevel();
         }
 
         private void ApplyInitialMaterials()
@@ -678,6 +784,12 @@ namespace Domains.Player.Scripts
             {
                 jetPackParticleSystem.startColor = characterStatProfile.initialJetPackParticleColor;
                 UnityEngine.Debug.Log("Applied initial jetpack material");
+            }
+
+            if (scannerTool != null)
+            {
+                scannerTool.SetCurrentMaterial(characterStatProfile.initialScannerMaterial);
+                UnityEngine.Debug.Log("Applied initial scanner material");
             }
         }
 
@@ -750,6 +862,55 @@ namespace Domains.Player.Scripts
                 }
             }
 
+// In ApplyMaterialsBasedOnLevel() method, replace the scanner section with this:
+
+            if (scannerTool != null)
+            {
+                var scannerUpgrade = availableUpgrades.Find(u => u.upgradeTypeName == "Scanner");
+                if (scannerUpgrade != null)
+                {
+                    var upgradedScannerLevel = GetUpgradeLevel("Scanner");
+
+                    UnityEngine.Debug.Log(
+                        $"Scanner upgrade level: {upgradedScannerLevel}, Material level: {scannerLevel}");
+
+                    // Determine material based on level and material level
+                    if (upgradedScannerLevel <= 0 && scannerLevel <= 0)
+                    {
+                        // Initial state - use initial material
+                        scannerTool.SetCurrentMaterial(characterStatProfile.initialScannerMaterial);
+                        UnityEngine.Debug.Log("Applied initial scanner material (no upgrades)");
+                    }
+                    else if (scannerLevel > 0 && scannerLevel < scannerUpgrade.upgradeMaterials.Length)
+                    {
+                        // Upgraded state - use material from upgrade data
+                        var materialToApply = scannerUpgrade.upgradeMaterials[scannerLevel];
+                        if (materialToApply != null)
+                        {
+                            scannerTool.SetCurrentMaterial(materialToApply);
+                            UnityEngine.Debug.Log(
+                                $"Applied scanner material level {scannerLevel}: {materialToApply.name}");
+                        }
+                        else
+                        {
+                            UnityEngine.Debug.LogError($"Scanner material at level {scannerLevel} is null!");
+                            // Fallback to initial material
+                            scannerTool.SetCurrentMaterial(characterStatProfile.initialScannerMaterial);
+                        }
+                    }
+                    else
+                    {
+                        // Fallback case
+                        scannerTool.SetCurrentMaterial(characterStatProfile.initialScannerMaterial);
+                        UnityEngine.Debug.Log("Applied initial scanner material (fallback)");
+                    }
+                }
+                else
+                {
+                    UnityEngine.Debug.LogError("Could not find Scanner upgrade data!");
+                }
+            }
+
 
             // Pickaxe material based on level
             if (pickaxeTool != null)
@@ -818,11 +979,15 @@ namespace Domains.Player.Scripts
             pickaxeToolEffectOpacity = characterStatProfile.pickaxeMiningToolEffectOpacity;
             pickaxeMiningToolWidth = characterStatProfile.pickaxeMiningToolWidth;
             jetPackSpeedMultiplier = characterStatProfile.initialJetPackSpeedMultiplier;
+            scannerRange = characterStatProfile.initialScannerRange;
+            scannerProfile = characterStatProfile.initialScanProfile;
+
 
             // Reset material levels
             shovelMaterialLevel = 0;
             pickaxeMaterialLevel = 0;
             jetPackMaterialLevel = 0;
+            scannerLevel = 0;
 
             // Apply default materials
             if (shovelTool != null)
@@ -850,6 +1015,19 @@ namespace Domains.Player.Scripts
                 UnityEngine.Debug.Log("Reset to initial GREY jetpack material");
             }
 
+            if (scannerTool != null)
+            {
+                scannerTool.SetCurrentMaterial(characterStatProfile.initialScannerMaterial);
+                scannerTool.SetScannerRange(characterStatProfile.initialScannerRange); // ✅ Reset range too
+                UnityEngine.Debug.Log("Reset to initial scanner material and range");
+            }
+
+            if (compassNavigator != null)
+            {
+                compassNavigator.scanProfile = characterStatProfile.initialScanProfile;
+                UnityEngine.Debug.Log("Reset to initial scanner profile");
+            }
+
             // Delete material-related keys to ensure clean state
             if (ES3.KeyExists("ShovelMaterialLevel", "UpgradeSave.es3"))
                 ES3.DeleteKey("ShovelMaterialLevel", "UpgradeSave.es3");
@@ -860,6 +1038,9 @@ namespace Domains.Player.Scripts
             if (ES3.KeyExists("JetPackMaterialLevel", "UpgradeSave.es3"))
                 ES3.DeleteKey("JetPackMaterialLevel", "UpgradeSave.es3");
 
+            if (ES3.KeyExists("ScannerLevel", "UpgradeSave.es3"))
+                ES3.DeleteKey("ScannerLevel", "UpgradeSave.es3");
+
 
             // Trigger events
             UpgradeEvent.Trigger(UpgradeType.Shovel, UpgradeEventType.ShovelMiningSizeSet, null, 0,
@@ -867,6 +1048,12 @@ namespace Domains.Player.Scripts
 
             UpgradeEvent.Trigger(UpgradeType.Pickaxe, UpgradeEventType.PickaxeMiningSizeSet, null, 0,
                 UpgradeEffectType.None, pickaxeToolEffectRadius, null, pickaxeToolEffectOpacity);
+
+            UpgradeEvent.Trigger(UpgradeType.Jetpack, UpgradeEventType.JetpackSpeedSet, null, 0,
+                UpgradeEffectType.None, jetPackSpeedMultiplier, null, 0f);
+
+            UpgradeEvent.Trigger(UpgradeType.Scanner, UpgradeEventType.ScannerSet, null, 0,
+                UpgradeEffectType.None, scannerRange, null, 0f);
         }
     }
 }

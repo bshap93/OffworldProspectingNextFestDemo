@@ -1,16 +1,17 @@
-﻿using System;
-using CompassNavigatorPro;
+﻿using CompassNavigatorPro;
 using Domains.Gameplay.Equipment.Events;
 using Domains.Gameplay.Equipment.Scripts;
+using Domains.Player.Events;
 using Domains.Scripts_that_Need_Sorting;
 using HighlightPlus;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Domains.Gameplay.Tools.ToolSpecifics
 {
-    public class ScannerTool : MonoBehaviour, IToolAction
+    public class ScannerTool : MonoBehaviour, IToolAction, MMEventListener<UpgradeEvent>
     {
         [SerializeField] private ToolType toolType;
         [SerializeField] private ToolIteration toolIteration;
@@ -18,30 +19,46 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
         [SerializeField] private MMFeedbacks useFeedbacks;
         [SerializeField] private HighlightEffect highlightEffect;
         [SerializeField] protected float scanningCooldown = 3f;
-        Coroutine CooldownCoroutine;
-        protected float lastScanTime = -999f;
 
-        [SerializeField] ProgressBarBlue cooldownProgressBar;
+        public Material currentMaterial;
+
+
+        [SerializeField] private ProgressBarBlue cooldownProgressBar;
 
         [FormerlySerializedAs("textureDetector")] [SerializeField]
         private TerrainLayerDetector terrainLayerDetector;
-         CompassPro _compassNavigatorPro;
 
         [SerializeField] private LayerMask playerMask;
         [SerializeField] private float maxToolRange = 5f;
         [SerializeField] private Camera mainCamera;
+        private CompassPro _compassNavigatorPro;
+        private Coroutine CooldownCoroutine;
         private RaycastHit lastHit;
-
-        public ToolType ToolType => toolType;
-        public ToolIteration ToolIteration => toolIteration;
-        public MMFeedbacks EquipFeedbacks => equipFeedbacks;
+        protected float lastScanTime = -999f;
+        private MeshRenderer meshRenderer;
 
         private void Start()
         {
             _compassNavigatorPro = FindFirstObjectByType<CompassPro>();
-            if (_compassNavigatorPro == null) 
+            if (_compassNavigatorPro == null)
                 UnityEngine.Debug.LogWarning("CompassPro component not found in the scene.");
+
+            meshRenderer = GetComponent<MeshRenderer>();
         }
+
+        public void OnEnable()
+        {
+            this.MMEventStartListening();
+        }
+
+        public void OnDisable()
+        {
+            this.MMEventStopListening();
+        }
+
+        public ToolType ToolType => toolType;
+        public ToolIteration ToolIteration => toolIteration;
+        public MMFeedbacks EquipFeedbacks => equipFeedbacks;
 
 
         public void UseTool(RaycastHit hit)
@@ -53,17 +70,14 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
         {
             if (Time.time < lastScanTime + scanningCooldown)
                 return;
-            
+
             lastScanTime = Time.time;
-            if (CooldownCoroutine != null)
-            {
-                StopCoroutine(CooldownCoroutine);
-            }
+            if (CooldownCoroutine != null) StopCoroutine(CooldownCoroutine);
             EquipmentEvent.Trigger(EquipmentEventType.UseEquipment, ToolType.Scanner);
             useFeedbacks?.PlayFeedbacks();
             highlightEffect.highlighted = true;
             _compassNavigatorPro.Scan();
-            
+
             CooldownCoroutine = StartCoroutine(cooldownProgressBar.ShowCooldownBarCoroutine(scanningCooldown));
         }
 
@@ -99,7 +113,28 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
 
         public void HideCooldownBar()
         {
+        }
 
+
+        public void OnMMEvent(UpgradeEvent eventType)
+        {
+            if (eventType.EventType == UpgradeEventType.ScannerSet)
+            {
+                SetScannerRange(eventType.EffectValue);
+                SetCurrentMaterial(eventType.CurrentMaterial);
+            }
+        }
+
+        public void SetScannerRange(float newScannerRange)
+        {
+            maxToolRange = newScannerRange;
+        }
+
+        public void SetCurrentMaterial(Material upgradeMaterial)
+        {
+            currentMaterial = upgradeMaterial;
+            if (meshRenderer != null)
+                meshRenderer.material = currentMaterial;
         }
     }
 }

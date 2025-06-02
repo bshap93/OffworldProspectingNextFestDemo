@@ -32,3 +32,5 @@ MonoBehaviour:
   initialShovelToolEffectOpacity: 5
   pickaxeMiningToolEffectOpacity: 10
   initialJetPackParticleColor: {r: 1, g: 1, b: 1, a: 1}
+  initialScannerRange: 5
+  initialScanProfile: {fileID: 11400000, guid: 3c553a01218371545850e4cd287b5b27, type: 2}

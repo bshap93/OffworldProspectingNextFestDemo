@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07067cae456b4f6db0d26a0c50971d8, type: 3}
+  m_Name: BasicScannerProfile
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0, z: 0}
+  color: {r: 0.5921569, g: 0.5921569, b: 0.5921569, a: 0.44705883}
+  maxRange: 100
+  duration: 0.5
+  fadeOutStart: 0.5
+  fadeOutDuration: 0.5
+  width: 100
+  grid: 1
+  gridColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0.25490198}
+  gridSize: 0.1
+  gridDepthWidthControl: 150
+  gridDepthStart: 100
+  edgeOutline: 1
+  edgeColor: {r: 1, g: 1, b: 1, a: 0.50980395}
+  edgeDepthThreshold: 0.01
+  edgeColorThreshold: 0.1
+  edgeStrength: 1
+  edgeWidth: 1
+  filled: 0
+  colorBlend: {r: 1, g: 1, b: 1, a: 0.21568628}
+  scanLines: 1
+  noise: 1
+  hitLayerMask:
+    serializedVersion: 2
+    m_Bits: 130423
+  detectDisabledPOIs: 1
+  audioClipStart: {fileID: 0}
+  audioClipHit: {fileID: 8300000, guid: e56dea5cbcdbfe64c9ab020034173a85, type: 3}

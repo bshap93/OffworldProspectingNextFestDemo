@@ -9,7 +9,9 @@ namespace Domains.Player.Events
         UpgradePurchased,
         UpgradeFailed,
         ShovelMiningSizeSet,
-        PickaxeMiningSizeSet
+        PickaxeMiningSizeSet,
+        JetpackSpeedSet,
+        ScannerSet
     }
 
     public enum UpgradeType
@@ -19,7 +21,8 @@ namespace Domains.Player.Events
         Endurance,
         Inventory,
         Jetpack,
-        None
+        None,
+        Scanner
     }
 
     public enum UpgradeEffectType

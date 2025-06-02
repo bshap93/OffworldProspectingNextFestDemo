@@ -10,7 +10,7 @@ namespace Domains.Gameplay.Tools
 {
     public class UsingToolState : CharacterState
     {
-        public UnityEngine.Camera mainCamera;
+        public Camera mainCamera;
 
         [FormerlySerializedAs("textureDetector")] [SerializeField]
         private TerrainLayerDetector terrainLayerDetector;
@@ -27,12 +27,15 @@ namespace Domains.Gameplay.Tools
                 var tool = PlayerEquipment.Instance.CurrentToolComponent;
                 if (tool == null) return;
 
-                if (tool is ScannerTool)
+                // Handle Scanner Tool specifically
+                if (tool is ScannerTool scannerTool)
                 {
-                    // Perform tool action
-                    tool.PerformToolAction();
+                    UnityEngine.Debug.Log("Scanner tool detected, performing scan action");
+                    // Perform tool action directly - no raycast needed for scanner
+                    scannerTool.PerformToolAction();
                     return;
                 }
+
 
                 var notPlayerMask = ~playerMask;
                 if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out var hit,

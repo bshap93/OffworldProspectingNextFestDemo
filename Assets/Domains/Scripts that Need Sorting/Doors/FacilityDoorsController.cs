@@ -1,14 +1,10 @@
 using DG.Tweening;
-using JetBrains.Annotations;
-using MoreMountains.Feedbacks;
 using UnityEngine;
 
-namespace Domains.Scripts_that_Need_Sorting
+namespace Domains.Scripts_that_Need_Sorting.Doors
 {
-    public class FacilityDoorsController: DoorsController
+    public class FacilityDoorsController : DoorsController
     {
-
-
         private Quaternion originalRotationL;
 
         private Quaternion originalRotationR;
@@ -27,7 +23,7 @@ namespace Domains.Scripts_that_Need_Sorting
             isOpen = true;
             if (OpenDoorFeedbacks != null) OpenDoorFeedbacks.PlayFeedbacks();
 
-            LDoor.transform.DOLocalMoveX(  1.5f,  1f);
+            LDoor.transform.DOLocalMoveX(1.5f, 1f);
             RDoor.transform.DOLocalMoveX(-1.5f, 1f);
         }
 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CompassNavigatorPro;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Domains.Player.Scripts.ScriptableObjects
@@ -48,5 +49,8 @@ namespace Domains.Player.Scripts.ScriptableObjects
 
         [FormerlySerializedAs("initialJetPackParticleMaterial")]
         public Color initialJetPackParticleColor;
+
+        public float initialScannerRange;
+        public ScanProfile initialScanProfile;
     }
 }
