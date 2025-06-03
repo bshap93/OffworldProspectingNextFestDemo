@@ -45,6 +45,7 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
                 UnityEngine.Debug.LogWarning("CompassPro component not found in the scene.");
 
             meshRenderer = GetComponent<MeshRenderer>();
+            if (currentMaterial != null) SetCurrentMaterial(currentMaterial);
         }
 
         public void OnEnable()
@@ -120,11 +121,7 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
 
         public void OnMMEvent(UpgradeEvent eventType)
         {
-            // if (eventType.EventType == UpgradeEventType.ScannerSet)
-            // {
-            //     SetScannerRange(eventType.EffectValue);
-            //     SetCurrentMaterial(eventType.CurrentMaterial);
-            // }
+            if (eventType.EventType == UpgradeEventType.ScannerRangeSet) SetScannerRange(eventType.EffectValue);
         }
 
         public void SetScannerRange(float newScannerRange)
@@ -137,7 +134,7 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
         {
             currentMaterial = upgradeMaterial;
             if (meshRenderer != null)
-                meshRenderer.material = currentMaterial;
+                meshRenderer.material = upgradeMaterial;
         }
     }
 }

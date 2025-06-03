@@ -172,6 +172,7 @@ namespace Domains.Player.Scripts
             shovelMaterialLevel = 0;
             pickaxeMaterialLevel = 0;
             jetPackMaterialLevel = 0;
+            scannerMaterialLevel = 0;
         }
 
         private PickaxeTool FindPickaxeTool()
@@ -354,6 +355,14 @@ namespace Domains.Player.Scripts
                 scannerTool.maxToolRange = newScannerRange;
             else
                 UnityEngine.Debug.LogWarning("ScannerTool not found. Upgrade may not apply correctly.");
+
+            if (upgradeMaterial != null)
+            {
+                scannerTool.SetCurrentMaterial(upgradeMaterial);
+                scannerMaterialLevel = level;
+
+                ES3.Save("ScannerMaterialLevel", scannerMaterialLevel, "UpgradeSave.es3");
+            }
         }
 
         private void ApplyJetpackUpgrade(int level, float multiplier, float secondaryMultiplier,
@@ -518,6 +527,7 @@ namespace Domains.Player.Scripts
             ES3.Save("JetPackSpeedMultiplier", jetPackSpeedMultiplier, "UpgradeSave.es3");
             ES3.Save("JetPackMaterialLevel", jetPackMaterialLevel, "UpgradeSave.es3");
             ES3.Save("ScannerRange", scannerRange, "UpgradeSave.es3");
+            ES3.Save("ScannerMaterialLevel", scannerMaterialLevel, "UpgradeSave.es3");
 
 
             // Save other properties
@@ -563,6 +573,7 @@ namespace Domains.Player.Scripts
             shovelToolEffectOpacity = characterStatProfile.initialShovelToolEffectOpacity;
             pickaxeToolEffectRadius = characterStatProfile.initialPickaxeToolEffectRadius;
             pickaxeToolEffectOpacity = characterStatProfile.pickaxeMiningToolEffectOpacity;
+
 
             // Apply the effects to tools
             if (shovelTool != null)
@@ -636,6 +647,9 @@ namespace Domains.Player.Scripts
             if (ES3.KeyExists("ScannerRange", "UpgradeSave.es3"))
                 scannerRange = ES3.Load<float>("ScannerRange", "UpgradeSave.es3");
 
+            if (ES3.KeyExists("ScannerMaterialLevel", "UpgradeSave.es3"))
+                scannerMaterialLevel = ES3.Load<int>("ScannerMaterialLevel", "UpgradeSave.es3");
+
             // Apply shovel properties
             if (shovelTool != null)
                 shovelTool.SetDiggerUsingToolEffectSize(shovelToolEffectRadius, shovelToolEffectOpacity);
@@ -708,6 +722,12 @@ namespace Domains.Player.Scripts
             {
                 pickaxeTool.SetCurrentMaterial(characterStatProfile.initialPickaxeMaterial);
                 UnityEngine.Debug.Log("Applied initial pickaxe material");
+            }
+
+            if (scannerTool != null)
+            {
+                scannerTool.SetCurrentMaterial(characterStatProfile.initialScannerMaterial);
+                UnityEngine.Debug.Log("Applied initial scanner material");
             }
 
             if (jetPackParticleSystem != null)
@@ -786,6 +806,36 @@ namespace Domains.Player.Scripts
                 }
             }
 
+            if (scannerTool != null)
+            {
+                var scannerUpgrade = availableUpgrades.Find(u => u.upgradeTypeName == "Scanner");
+                if (scannerUpgrade != null)
+                {
+                    var upgradedScannerLevel = GetUpgradeLevel("Scanner");
+
+                    if (upgradedScannerLevel <= 0 && scannerMaterialLevel <= 0)
+                    {
+                        scannerTool.SetCurrentMaterial(characterStatProfile.initialScannerMaterial);
+                    }
+                    else if (scannerMaterialLevel < scannerUpgrade.upgradeMaterials.Length)
+                    {
+                        var materialToApply =
+                            scannerUpgrade.upgradeMaterials[scannerMaterialLevel];
+
+                        if (materialToApply != null)
+                        {
+                            scannerTool.SetCurrentMaterial(materialToApply);
+                            UnityEngine.Debug.Log(
+                                $"Applied scanner material level {scannerMaterialLevel}: {materialToApply.name}");
+                        }
+                        else
+                        {
+                            UnityEngine.Debug.LogError($"Scanner material at level {scannerMaterialLevel} is null!");
+                        }
+                    }
+                }
+            }
+
 
             // Pickaxe material based on level
             if (pickaxeTool != null)
@@ -860,6 +910,7 @@ namespace Domains.Player.Scripts
             shovelMaterialLevel = 0;
             pickaxeMaterialLevel = 0;
             jetPackMaterialLevel = 0;
+            scannerMaterialLevel = 0;
 
             // Apply default materials
             if (shovelTool != null)
@@ -887,6 +938,13 @@ namespace Domains.Player.Scripts
                 UnityEngine.Debug.Log("Reset to initial GREY jetpack material");
             }
 
+            if (scannerTool != null)
+            {
+                scannerTool.SetCurrentMaterial(characterStatProfile.initialScannerMaterial);
+                scannerTool.maxToolRange = characterStatProfile.initialScannerRange;
+                UnityEngine.Debug.Log("Reset to initial scanner material");
+            }
+
             // Delete material-related keys to ensure clean state
             if (ES3.KeyExists("ShovelMaterialLevel", "UpgradeSave.es3"))
                 ES3.DeleteKey("ShovelMaterialLevel", "UpgradeSave.es3");
@@ -897,6 +955,9 @@ namespace Domains.Player.Scripts
             if (ES3.KeyExists("JetPackMaterialLevel", "UpgradeSave.es3"))
                 ES3.DeleteKey("JetPackMaterialLevel", "UpgradeSave.es3");
 
+            if (ES3.KeyExists("ScannerMaterialLevel", "UpgradeSave.es3"))
+                ES3.DeleteKey("ScannerMaterialLevel", "UpgradeSave.es3");
+
 
             // Trigger events
             UpgradeEvent.Trigger(UpgradeType.Shovel, UpgradeEventType.ShovelMiningSizeSet, null, 0,
@@ -904,6 +965,9 @@ namespace Domains.Player.Scripts
 
             UpgradeEvent.Trigger(UpgradeType.Pickaxe, UpgradeEventType.PickaxeMiningSizeSet, null, 0,
                 UpgradeEffectType.None, pickaxeToolEffectRadius, null, pickaxeToolEffectOpacity);
+
+            UpgradeEvent.Trigger(UpgradeType.Scanner, UpgradeEventType.ScannerRangeSet, null, 0,
+                UpgradeEffectType.None, scannerRange);
         }
     }
 }

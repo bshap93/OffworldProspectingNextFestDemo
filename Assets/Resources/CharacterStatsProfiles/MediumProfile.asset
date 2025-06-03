@@ -15,7 +15,7 @@ MonoBehaviour:
   InitialMaxFuel: 100
   InitialMaxHealth: 20
   InitialFuel: 0
-  InitialHealth: 0
+  InitialHealth: 20
   initialUpgradeColor: {r: 0.81761, g: 0.81761, b: 0.81761, a: 1}
   initialPickaxeMaterial: {fileID: 2100000, guid: 3ac396b7def709548ad525a4324d2155, type: 2}
   initialShovelMaterial: {fileID: 2100000, guid: 811b9db2cc68c1848a54e3c0269b7dc2, type: 2}

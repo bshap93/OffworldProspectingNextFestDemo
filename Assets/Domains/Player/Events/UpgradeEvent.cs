@@ -11,7 +11,7 @@ namespace Domains.Player.Events
         ShovelMiningSizeSet,
         PickaxeMiningSizeSet,
         JetpackSpeedSet,
-        ScannerSet
+        ScannerRangeSet
     }
 
     public enum UpgradeType
