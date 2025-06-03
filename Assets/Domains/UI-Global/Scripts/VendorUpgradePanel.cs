@@ -38,6 +38,9 @@ namespace Domains.UI_Global.Scripts
                 _playerUpgradeManager.GetUpgradeName(upgradeData.upgradeTypeName); // Show upgrade level name
 
             nextUpgradeCostText.text = _playerUpgradeManager.GetUpgradeCost(upgradeData.upgradeTypeName).ToString();
+
+            var upgradeLevel = _playerUpgradeManager.GetUpgradeLevel(upgradeData.upgradeTypeName);
+            upgradeIconImage.color = upgradeData.upgradeColors[upgradeLevel - 1]; // Set icon color based on level
         }
 
 

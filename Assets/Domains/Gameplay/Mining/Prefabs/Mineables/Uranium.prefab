@@ -731,7 +731,6 @@ GameObject:
   - component: {fileID: 4783793899337751918}
   - component: {fileID: 2853849295063243705}
   - component: {fileID: 1989880791653112441}
-  - component: {fileID: 8320398912542478590}
   - component: {fileID: 2588776611368955734}
   - component: {fileID: 5109623187792797151}
   - component: {fileID: 7939386556831795790}
@@ -915,23 +914,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OreHardness: 0
-  UniqueID: 8185ec6c-623f-48a7-a189-a971afd1589d
+  UniqueID: 
   failHitFeedbacks: {fileID: 5939243206290031498}
   failHitParticles: {fileID: 6835221663383594993, guid: b4fdebf16c953b245b30edeebb4ed72c, type: 3}
   oreHitParticles: {fileID: 6835221663383594993, guid: b4fdebf16c953b245b30edeebb4ed72c, type: 3}
   oreDestroyParticles: {fileID: 6835221663383594993, guid: bb73feb24327e8e4a874bf8253d13d95, type: 3}
---- !u!114 &8320398912542478590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3682673757431954790}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 578bcf0852aa7194388af9f7dacd7ca8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2588776611368955734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,7 +1166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb18bd15cc5eb54dbddc9772eb732ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 8e39ec0b-2c2b-4b37-9571-9bbdbe85f9ed
+  targetID: 
   onScanned:
     m_PersistentCalls:
       m_Calls: []
