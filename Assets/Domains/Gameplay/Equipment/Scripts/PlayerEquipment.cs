@@ -58,8 +58,12 @@ namespace Domains.Gameplay.Equipment.Scripts
         private void Start()
         {
             numTools = Tools.Length;
-            CurrentToolComponent = Tools[0];
+            SwitchTool(0);
+            // CurrentToolComponent = Tools[0];
+
             toolPanelController.ActivateToolPanelItem(currentToolType);
+
+            UnityEngine.Debug.Log("Initial tool is: " + CurrentToolComponent?.GetType().Name);
         }
 
         private void Update()

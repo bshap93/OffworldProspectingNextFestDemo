@@ -38,6 +38,7 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
         protected float lastScanTime = -999f;
         private MeshRenderer meshRenderer;
 
+
         private void Start()
         {
             _compassNavigatorPro = FindFirstObjectByType<CompassPro>();
