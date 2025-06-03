@@ -23,6 +23,8 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
 
         public Material currentMaterial;
 
+        public bool calibrated;
+
 
         [SerializeField] private ProgressBarBlue cooldownProgressBar;
 

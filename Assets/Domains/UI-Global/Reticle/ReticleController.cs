@@ -3,12 +3,13 @@ using Domains.Gameplay.Mining.Scripts;
 using Domains.Gameplay.Tools;
 using Domains.Gameplay.Tools.ToolSpecifics;
 using Domains.Scripts_that_Need_Sorting;
+using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Domains.UI_Global.Reticle
 {
-    public class ReticleController : MonoBehaviour
+    public class ReticleController : MonoBehaviour, MMEventListener<ScannerEvent>
     {
         [Header("Reticle States")] public ReticleState defaultState;
 
@@ -17,6 +18,7 @@ namespace Domains.UI_Global.Reticle
         public ReticleState switchToolState;
         public ReticleState validTerrainState;
         public ReticleState scannerState;
+        public ReticleState scannerNotCalibratedState;
 
 
         public TerrainLayerDetector terrainLayerDetector;
@@ -24,6 +26,28 @@ namespace Domains.UI_Global.Reticle
 
         private ReticleState currentState;
         private IToolAction currentTool;
+
+        private bool scannerCalibrated;
+
+        private void OnEnable()
+        {
+            this.MMEventStartListening();
+        }
+
+        private void OnDisable()
+        {
+            this.MMEventStopListening();
+        }
+
+        public void OnMMEvent(ScannerEvent eventType)
+        {
+            if (eventType.ScannerEventType == ScannerEventType.ScannerCalibrated)
+            {
+                scannerCalibrated = true;
+                ApplyReticleState(scannerState);
+                UnityEngine.Debug.unityLogger.Log(eventType.ScannerEventType);
+            }
+        }
 
         public void UpdateReticle(RaycastHit? hit, bool terrainBlocking)
         {
@@ -33,7 +57,11 @@ namespace Domains.UI_Global.Reticle
             // Special case for Scanner tool - always use scanner state
             if (currentTool is ScannerTool)
             {
-                ApplyReticleState(scannerState);
+                if (scannerCalibrated)
+                    ApplyReticleState(scannerState);
+                else
+                    ApplyReticleState(scannerNotCalibratedState);
+
                 return;
             }
 

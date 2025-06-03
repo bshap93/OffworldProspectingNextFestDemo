@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BasicScannerProfile
   m_EditorClassIdentifier: 
   center: {x: 0, y: 0, z: 0}
-  color: {r: 0.5921569, g: 0.5921569, b: 0.5921569, a: 0.44705883}
+  color: {r: 0.5921569, g: 0.5921569, b: 0.5921569, a: 0.14117648}
   maxRange: 100
   duration: 0.5
   fadeOutStart: 0.5
@@ -25,7 +25,7 @@ MonoBehaviour:
   gridDepthWidthControl: 150
   gridDepthStart: 100
   edgeOutline: 1
-  edgeColor: {r: 1, g: 1, b: 1, a: 0.50980395}
+  edgeColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   edgeDepthThreshold: 0.01
   edgeColorThreshold: 0.1
   edgeStrength: 1

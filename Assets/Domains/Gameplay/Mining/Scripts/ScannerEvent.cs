@@ -6,7 +6,8 @@ namespace Domains.Gameplay.Mining.Scripts
     [Serializable]
     public enum ScannerEventType
     {
-        ScannedObject
+        ScannedObject,
+        ScannerCalibrated
     }
 
     public struct ScannerEvent

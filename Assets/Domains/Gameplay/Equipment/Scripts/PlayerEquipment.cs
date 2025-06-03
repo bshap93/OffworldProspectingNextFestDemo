@@ -1,16 +1,20 @@
 using Domains.Effects.Scripts;
 using Domains.Gameplay.Equipment.Events;
 using Domains.Gameplay.Managers.Scripts;
+using Domains.Gameplay.Mining.Scripts;
 using Domains.Gameplay.Tools;
+using Domains.Gameplay.Tools.ToolSpecifics;
 using Domains.Input.Scripts;
 using Domains.Scripts_that_Need_Sorting;
+using Domains.UI_Global.Events;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Domains.Gameplay.Equipment.Scripts
 {
-    public class PlayerEquipment : MonoBehaviour
+    public class PlayerEquipment : MonoBehaviour, MMEventListener<ScannerEvent>
     {
         public static PlayerEquipment Instance;
 
@@ -44,12 +48,13 @@ namespace Domains.Gameplay.Equipment.Scripts
         {
             Instance = this;
 
-            // Convert MonoBehaviours to IToolAction
             Tools = new IToolAction[toolObjects.Length];
+
             for (var i = 0; i < toolObjects.Length; i++)
             {
+                toolObjects[i].SetActive(true); // Temporarily enable
                 Tools[i] = toolObjects[i].GetComponent<IToolAction>();
-                if (Tools[i] == null) UnityEngine.Debug.LogError($"Tool at index {i} does not implement IToolAction.");
+                toolObjects[i].SetActive(false); // Immediately disable again
             }
 
             EquipmentEvent.Trigger(EquipmentEventType.ChangeToEquipment, currentToolType);
@@ -58,7 +63,7 @@ namespace Domains.Gameplay.Equipment.Scripts
         private void Start()
         {
             numTools = Tools.Length;
-            SwitchTool(0);
+            SwitchTool(currentToolIndex);
             // CurrentToolComponent = Tools[0];
 
             toolPanelController.ActivateToolPanelItem(currentToolType);
@@ -75,6 +80,34 @@ namespace Domains.Gameplay.Equipment.Scripts
                 currentToolIndex = (currentToolIndex + direction + numTools) % numTools;
                 SwitchTool(currentToolIndex);
                 lastToolSwitchTime = Time.time;
+            }
+        }
+
+        private void OnEnable()
+        {
+            this.MMEventStartListening();
+        }
+
+        private void OnDisable()
+        {
+            this.MMEventStopListening();
+        }
+
+        public void OnMMEvent(ScannerEvent eventType)
+        {
+            if (eventType.ScannerEventType == ScannerEventType.ScannerCalibrated)
+            {
+                var scannerTool = Tools[2] as ScannerTool;
+                if (scannerTool != null && scannerTool.calibrated == false)
+                {
+                    scannerTool.calibrated = true; // Assuming ScannerTool is at index 2
+                    AlertEvent.Trigger(AlertReason.ScannerCalibrated,
+                        "Scanner calibrated successfully. You can now conduct scans.", "Scanner Calibrated");
+                }
+                else
+                {
+                    UnityEngine.Debug.LogWarning("ScannerTool not found at index 2.");
+                }
             }
         }
 

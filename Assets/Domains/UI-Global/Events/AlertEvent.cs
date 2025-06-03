@@ -22,7 +22,8 @@ namespace Domains.UI_Global.Events
         HealthFull,
         PickedUpEquipment,
         DiggerPersisted,
-        ScanningRangeIncreased
+        ScanningRangeIncreased,
+        ScannerCalibrated
     }
 
     public enum AlertType

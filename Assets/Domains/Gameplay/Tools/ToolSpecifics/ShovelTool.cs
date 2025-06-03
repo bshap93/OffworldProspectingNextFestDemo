@@ -134,6 +134,9 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
                     break;
                 }
 
+            ScannerEvent.Trigger(ScannerEventType.ScannerCalibrated, "Calibrating: No Target");
+
+
             if (prefabToUse != null)
             {
                 UnityEngine.Debug.Log("Prefab to use found: " + prefabToUse.name);

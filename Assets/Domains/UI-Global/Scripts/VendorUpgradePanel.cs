@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Domains.Scripts
+namespace Domains.UI_Global.Scripts
 {
     public class VendorUpgradePanel : MonoBehaviour, MMEventListener<UpgradeEvent>
     {
@@ -62,6 +62,8 @@ namespace Domains.Scripts
 
                     nextUpgradeCostText.text =
                         _playerUpgradeManager.GetUpgradeCost(eventType.UpgradeData.upgradeTypeName).ToString();
+                    var upgradeLevel = _playerUpgradeManager.GetUpgradeLevel(eventType.UpgradeData.upgradeTypeName);
+                    upgradeIconImage.color = upgradeData.upgradeColors[upgradeLevel - 1];
                 }
         }
 
