@@ -6681,7 +6681,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 820989881}
   m_HandleRect: {fileID: 820989880}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.9999999
   m_Size: 0.33112583
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10747,7 +10747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &831038513
 MonoBehaviour:
   m_ObjectHideFlags: 0
