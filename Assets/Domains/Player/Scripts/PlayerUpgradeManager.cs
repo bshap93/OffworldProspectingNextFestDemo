@@ -37,6 +37,7 @@ namespace Domains.Player.Scripts
         private static int shovelMaterialLevel;
         private static int pickaxeMaterialLevel;
         private static int jetPackMaterialLevel;
+        private static int scannerMaterialLevel;
 
         private static float fuelCapacity = 100f;
         private static string currentToolId = "Shovel";

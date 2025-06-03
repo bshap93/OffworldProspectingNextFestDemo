@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal1:
-        m_Texture: {fileID: 2800000, guid: 87a0523e082bf194b977fe64a3c27afc, type: 3}
+        m_Texture: {fileID: 2800000, guid: d2274a1c7dccfb44aadc95c35cf688bb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal2:
@@ -48,8 +48,8 @@ Material:
         m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _Splat1:
-        m_Texture: {fileID: 2800000, guid: 6291f62b42d5db8498d765d617e8f5dc, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: de38c80f15fdad94697c266b24cbfd61, type: 3}
+        m_Scale: {x: 0.2, y: 0.2}
         m_Offset: {x: 0, y: 0}
     - _Splat2:
         m_Texture: {fileID: 2800000, guid: 52cdc437570a70744872ef354c000683, type: 3}
@@ -67,7 +67,7 @@ Material:
     - _Metallic2: 0
     - _Metallic3: 0
     - _NormalScale0: 1.2
-    - _NormalScale1: 2.03
+    - _NormalScale1: 1
     - _NormalScale2: 3.15
     - _NormalScale3: 2.08
     - _Smoothness0: 0
@@ -84,8 +84,8 @@ Material:
     - _offset3y: 0
     - _tiles0x: 0.5
     - _tiles0y: 0.5
-    - _tiles1x: 1
-    - _tiles1y: 1
+    - _tiles1x: 0.2
+    - _tiles1y: 0.2
     - _tiles2x: 1
     - _tiles2y: 1
     - _tiles3x: 0.5
