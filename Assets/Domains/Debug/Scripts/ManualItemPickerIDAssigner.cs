@@ -1,6 +1,7 @@
 ﻿using System;
 using Domains.Effects.Scripts;
 using Domains.Gameplay.Mining.Scripts;
+using Domains.Input.Scripts;
 using Domains.Items.Scripts;
 using UnityEditor;
 using UnityEngine;
@@ -118,6 +119,35 @@ namespace Domains.Debug
             AssetDatabase.SaveAssets();
 
             UnityEngine.Debug.Log($"Assigned unique IDs to {allInteractableObjectives.Length} InteractableObjectives.");
+        }
+
+        [MenuItem("Debug/Assign Unique IDs to InfoPanelActivators")]
+        private static void AssignUniqueIDsInfoPanelActivators()
+        {
+            // Find all InfoPanelActivator components in the current scene
+            var allInfoPanelActivators = FindObjectsByType<InfoPanelActivator>(FindObjectsSortMode.None);
+
+            // Check if any were found
+            if (allInfoPanelActivators.Length == 0)
+            {
+                UnityEngine.Debug.LogWarning("No InfoPanelActivator components found in the scene.");
+                return;
+            }
+
+            // Iterate through each InfoPanelActivator and assign a unique ID
+            foreach (var activator in allInfoPanelActivators)
+                if (activator != null)
+                {
+                    // Generate a unique ID using GUID
+                    activator.uniqueID = Guid.NewGuid().ToString();
+                    EditorUtility.SetDirty(activator); // Mark the object as dirty for saving
+                }
+
+            // Save the scene to persist changes
+            AssetDatabase.SaveAssets();
+
+            UnityEngine.Debug.Log(
+                $"Assigned unique IDs to {allInfoPanelActivators.Length} InfoPanelActivator components.");
         }
     }
 }

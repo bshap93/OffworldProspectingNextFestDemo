@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2059037009466018813}
   - component: {fileID: 6050998988261572376}
   - component: {fileID: 6308667480858590037}
-  - component: {fileID: 105048118493138466}
   m_Layer: 0
   m_Name: BrownThickerDustColored
   m_TagString: Untagged
@@ -4904,15 +4903,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &105048118493138466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6948713295122520351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622bafba08a57de4091ac09a93631469, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

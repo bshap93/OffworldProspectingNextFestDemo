@@ -40,7 +40,10 @@ namespace Domains.UI_Global.Scripts
             nextUpgradeCostText.text = _playerUpgradeManager.GetUpgradeCost(upgradeData.upgradeTypeName).ToString();
 
             var upgradeLevel = _playerUpgradeManager.GetUpgradeLevel(upgradeData.upgradeTypeName);
-            upgradeIconImage.color = upgradeData.upgradeColors[upgradeLevel - 1]; // Set icon color based on level
+            if (upgradeLevel == 0)
+                upgradeIconImage.color = Color.white;
+            else if (upgradeLevel >= 1)
+                upgradeIconImage.color = upgradeData.upgradeColors[upgradeLevel - 1]; // Set icon color based on level
         }
 
 

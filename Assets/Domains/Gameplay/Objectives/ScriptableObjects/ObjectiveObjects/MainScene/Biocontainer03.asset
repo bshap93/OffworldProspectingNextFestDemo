@@ -15,6 +15,5 @@ MonoBehaviour:
   objectiveId: Biocontainer03
   objectiveText: Find the third Biocontainer
   activateWhenCompleted:
-  - Biocontainer01
   - Biocontainer02
   numberOfObjectives: 1
