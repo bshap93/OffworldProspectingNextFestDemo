@@ -731,7 +731,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OreHardness: 0
-  UniqueID: dadfefb0-8067-4556-affe-d828b87b0816
+  UniqueID: 03f6343b-9b5a-408d-b7c7-522cb070bbf3
   failHitFeedbacks: {fileID: 2879248722755317898}
   failHitParticles: {fileID: 6835221663383594993, guid: 4dcc88f5d0e581d488cb4d6cf6aa94ac, type: 3}
   oreHitParticles: {fileID: 6835221663383594993, guid: 4dcc88f5d0e581d488cb4d6cf6aa94ac, type: 3}
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb18bd15cc5eb54dbddc9772eb732ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 0d63ddfa-cb3e-487e-b0ef-1427f352102e
+  targetID: f1d253dc-2344-4b1d-854d-649bae49a5dc
   onScanned:
     m_PersistentCalls:
       m_Calls: []
@@ -974,7 +974,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   minDistance: 0
-  maxDistance: 4
+  maxDistance: 5
   respectUI: 1
   volumeLayerMask:
     serializedVersion: 2

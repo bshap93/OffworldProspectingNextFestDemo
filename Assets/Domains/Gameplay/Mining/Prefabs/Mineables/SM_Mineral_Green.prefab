@@ -634,10 +634,11 @@ GameObject:
   - component: {fileID: 5447819922584228757}
   - component: {fileID: 1608960719466673435}
   - component: {fileID: 5775791482648714589}
-  - component: {fileID: -5264020533336785524}
   - component: {fileID: 2399551882943269318}
   - component: {fileID: 1946925729643682920}
   - component: {fileID: 121023372708902359}
+  - component: {fileID: 8111522594672511340}
+  - component: {fileID: 4525538902219031550}
   m_Layer: 13
   m_Name: SM_Mineral_Green
   m_TagString: OreNode
@@ -816,23 +817,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OreHardness: 0
-  UniqueID: 3e8e5b98-aaa1-4b02-ad27-d793872f7986
+  UniqueID: 37bdc693-47e1-4f7e-85d4-dc5fa5188f33
   failHitFeedbacks: {fileID: 7234271836214855775}
   failHitParticles: {fileID: 6835221663383594993, guid: c14ae236c4c9aed41ba307d978ef96ee, type: 3}
   oreHitParticles: {fileID: 6835221663383594993, guid: c14ae236c4c9aed41ba307d978ef96ee, type: 3}
   oreDestroyParticles: {fileID: 6835221663383594993, guid: b8a54362331cc5f47ad0a2944e5d9a0e, type: 3}
---- !u!114 &-5264020533336785524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3760728787532913684}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 578bcf0852aa7194388af9f7dacd7ca8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2399551882943269318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,7 +1035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb18bd15cc5eb54dbddc9772eb732ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 3c2f6cfb-076e-4dcb-b874-b318481eb2cb
+  targetID: a8c81f54-c783-4df5-ae97-55a80e1eee09
   onScanned:
     m_PersistentCalls:
       m_Calls: []
@@ -1071,7 +1060,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   minDistance: 0
-  maxDistance: 4
+  maxDistance: 5
   respectUI: 1
   volumeLayerMask:
     serializedVersion: 2
@@ -1085,6 +1074,49 @@ MonoBehaviour:
   singleSelection: 0
   toggle: 0
   keepSelection: 1
+--- !u!54 &8111522594672511340
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760728787532913684}
+  serializedVersion: 4
+  m_Mass: 2
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4525538902219031550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760728787532913684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b824c3800bbbcf64da11f8500382b46c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRigidbody: {fileID: 8111522594672511340}
+  makeKinematicWhenDisabled: 1
+  enabledEffect: {fileID: 6835221663383594993, guid: c14ae236c4c9aed41ba307d978ef96ee, type: 3}
+  enabledFeedbacks: {fileID: 0}
 --- !u!1 &6011545242273055068
 GameObject:
   m_ObjectHideFlags: 0

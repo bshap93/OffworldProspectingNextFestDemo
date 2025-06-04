@@ -108,7 +108,7 @@ namespace Domains.Effects.Scripts
 
             var distance = GetDistanceFromPlayer();
             // Set at 5 for now
-            if (distance < PlayerEquipment.Instance.scannerMaxRange)
+            if (distance < PlayerEquipment.Instance.GetScannerMaxRange())
                 if (highlightEffect != null)
                 {
                     onScanned?.Invoke();

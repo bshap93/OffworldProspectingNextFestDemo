@@ -23,8 +23,7 @@ namespace Domains.Gameplay.Equipment.Scripts
         [SerializeField] private MMFeedbacks equipScannerFeedbacks;
         [SerializeField] private ToolPanelController toolPanelController;
 
-        [FormerlySerializedAs("ScannerMaxRange")] [SerializeField]
-        public float scannerMaxRange = 5f;
+
 
         public ToolType currentToolType;
         public ToolIteration currentToolIteration;
@@ -151,6 +150,21 @@ namespace Domains.Gameplay.Equipment.Scripts
             // Trigger the appropriate events and feedbacks
             EquipmentEvent.Trigger(EquipmentEventType.ChangeToEquipment, currentToolType);
             tool.EquipFeedbacks?.PlayFeedbacks();
+        }
+
+        public float GetScannerMaxRange()
+        {
+            var scannerTool = Tools[2] as ScannerTool;
+            if (scannerTool != null)
+            {
+                return scannerTool.maxToolRange;
+            }
+            else
+            {
+                UnityEngine.Debug.LogWarning("ScannerTool not found at index 2.");
+                return 0f; // Default value or handle error appropriately
+            }
+            
         }
     }
 }

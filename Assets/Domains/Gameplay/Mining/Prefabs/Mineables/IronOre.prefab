@@ -461,7 +461,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OreHardness: 0
-  UniqueID: eeaba538-96df-4394-8a59-2167842a67aa
+  UniqueID: 54ca934a-5039-412c-8c10-38d2a84bc96d
   failHitFeedbacks: {fileID: 481408227980071728}
   failHitParticles: {fileID: 6835221663383594993, guid: 67bf2c07e69f9c14e8b49b2add42dd8f, type: 3}
   oreHitParticles: {fileID: 6835221663383594993, guid: 67bf2c07e69f9c14e8b49b2add42dd8f, type: 3}
@@ -687,7 +687,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   minDistance: 0
-  maxDistance: 4
+  maxDistance: 5
   respectUI: 1
   volumeLayerMask:
     serializedVersion: 2
@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb18bd15cc5eb54dbddc9772eb732ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 238082e1-3a05-419b-a06c-a9856e43b31c
+  targetID: c97b1f68-44e3-4785-86b5-cc9e43126d27
   onScanned:
     m_PersistentCalls:
       m_Calls: []
@@ -896,7 +896,7 @@ MonoBehaviour:
   DebugActive: 0
   InScriptDrivenPause: 0
   FeedbacksList:
-  - rid: 5267127022453784754
+  - rid: 5267127022453784728
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   RestoreInitialValuesOnDisable: 0
@@ -905,11 +905,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 5267127022453784754
+    - rid: 5267127022453784728
       type: {class: MMF_Events, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: 1756056116
+        UniqueID: -1084665841
         Label: Unity Events
         OriginalLabel: Unity Events
         ChannelMode: 0

@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieces: {fileID: 2234489727933368931, guid: 134b0e14c1f0a2f4ba03e0fdc190b5b5, type: 3}
-  itemTypeMined: {fileID: 11400000, guid: 651fb09ed9fe93e4a92c7e4a005b91ab, type: 2}
+  itemTypeMined: {fileID: 11400000, guid: daf08e3ddbc891b47ad37ce774d4889d, type: 2}
   dropOnHit: 0
   hitsToDestroy: 1
   dropOnDestroy: 1
@@ -544,7 +544,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OreHardness: 0
-  UniqueID: ec75d5d1-e3dc-48f5-a355-ebc87a833b79
+  UniqueID: 1d433f8f-67d0-42dc-8a24-78e404b67eb6
   failHitFeedbacks: {fileID: 0}
   failHitParticles: {fileID: 6835221663383594993, guid: c14ae236c4c9aed41ba307d978ef96ee, type: 3}
   oreHitParticles: {fileID: 6835221663383594993, guid: c14ae236c4c9aed41ba307d978ef96ee, type: 3}
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb18bd15cc5eb54dbddc9772eb732ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: f08643cf-9812-4eeb-acd5-f6c88380fbf8
+  targetID: 68424bd9-5163-425e-856d-e58a6878ea38
   onScanned:
     m_PersistentCalls:
       m_Calls: []

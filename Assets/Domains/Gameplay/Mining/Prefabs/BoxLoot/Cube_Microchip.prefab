@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380f9b65545dc3b488923b80b2b83bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: afa5074b-0630-4283-b877-477c240d5ea3
+  uniqueID: ce923d8f-fd80-4ad5-b8cb-3989051b8fb7
   itemType: {fileID: 11400000, guid: dad5d6fc21478914290421293e4d0469, type: 2}
   quantity: 1
   OnItemPicked:
@@ -383,8 +383,8 @@ MonoBehaviour:
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  minDistance: 2
-  maxDistance: 10
+  minDistance: 0
+  maxDistance: 5
   respectUI: 1
   volumeLayerMask:
     serializedVersion: 2
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb18bd15cc5eb54dbddc9772eb732ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 36b95eb0-08e7-4dbb-87e2-c2512c649501
+  targetID: 52f8c6d2-ec12-4ade-9727-381d55248fc7
   onScanned:
     m_PersistentCalls:
       m_Calls: []

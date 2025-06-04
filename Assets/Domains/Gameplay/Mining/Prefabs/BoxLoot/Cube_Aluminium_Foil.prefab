@@ -383,7 +383,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   minDistance: 0
-  maxDistance: 4
+  maxDistance: 5
   respectUI: 1
   volumeLayerMask:
     serializedVersion: 2
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb18bd15cc5eb54dbddc9772eb732ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 12f91564-bee6-4d0e-b944-d2ded9bb28f8
+  targetID: 59e923e8-ba45-4919-a641-675c5d78bb76
   onScanned:
     m_PersistentCalls:
       m_Calls: []
