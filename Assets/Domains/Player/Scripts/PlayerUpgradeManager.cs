@@ -877,9 +877,118 @@ namespace Domains.Player.Scripts
             }
         }
 
+        // public static void ResetPlayerUpgrades()
+        // {
+        //     UnityEngine.Debug.Log("ResetPlayerUpgrades called - resetting all upgrades to initial state");
+        //
+        //     // Clear the save file completely
+        //     if (ES3.FileExists("UpgradeSave.es3"))
+        //     {
+        //         ES3.DeleteFile("UpgradeSave.es3");
+        //     }
+        //     
+        //     var characterStatProfile =
+        //         Resources.Load<CharacterStatProfile>(CharacterResourcePaths.CharacterStatProfileFilePath);
+        //     if (characterStatProfile == null)
+        //     {
+        //         UnityEngine.Debug.LogError(
+        //             "CharacterStatProfile not found in ResetPlayerUpgrades! Using default values.");
+        //         return;
+        //     }
+        //
+        //     // Reset upgrade levels
+        //     var upgradeKeys = new List<string>(UpgradeLevels.Keys);
+        //     foreach (var key in upgradeKeys)
+        //         UpgradeLevels[key] = characterStatProfile.InitialUpgradeState;
+        //
+        //     // Reset tool properties
+        //     shovelToolEffectRadius = characterStatProfile.initialShovelToolEffectRadius;
+        //     shovelToolEffectOpacity = characterStatProfile.initialShovelToolEffectOpacity;
+        //     shovelToolWidth = characterStatProfile.shovelMiningToolWidth;
+        //
+        //     pickaxeToolEffectRadius = characterStatProfile.initialPickaxeToolEffectRadius;
+        //     pickaxeToolEffectOpacity = characterStatProfile.pickaxeMiningToolEffectOpacity;
+        //     pickaxeMiningToolWidth = characterStatProfile.pickaxeMiningToolWidth;
+        //     jetPackSpeedMultiplier = characterStatProfile.initialJetPackSpeedMultiplier;
+        //     scannerRange = characterStatProfile.initialScannerRange;
+        //
+        //     // Reset material levels
+        //     shovelMaterialLevel = 0;
+        //     pickaxeMaterialLevel = 0;
+        //     jetPackMaterialLevel = 0;
+        //     scannerMaterialLevel = 0;
+        //     
+        //     SaveUpgrades();
+        //
+        //     // Apply default materials
+        //     if (shovelTool != null)
+        //     {
+        //         shovelTool.SetCurrentMaterial(characterStatProfile.initialShovelMaterial);
+        //         shovelTool.SetDiggerUsingToolEffectSize(shovelToolEffectRadius, shovelToolEffectOpacity);
+        //         UnityEngine.Debug.Log("Reset to initial GREY shovel material");
+        //     }
+        //
+        //     if (pickaxeTool != null)
+        //     {
+        //         pickaxeTool.SetCurrentMaterial(characterStatProfile.initialPickaxeMaterial);
+        //         pickaxeTool.SetDiggerUsingToolEffectSize(pickaxeToolEffectRadius, pickaxeToolEffectOpacity);
+        //
+        //         var oldScale = pickaxeTool.transform.localScale;
+        //         pickaxeTool.transform.localScale = new Vector3(pickaxeMiningToolWidth, oldScale.y, oldScale.z);
+        //
+        //         UnityEngine.Debug.Log("Reset to initial pickaxe material");
+        //     }
+        //
+        //     if (jetPackParticleSystem != null)
+        //     {
+        //         jetPackParticleSystem.startColor = characterStatProfile.initialJetPackParticleColor;
+        //         playerMovement.jetPackSpeedMultiplier = characterStatProfile.initialJetPackSpeedMultiplier;
+        //         UnityEngine.Debug.Log("Reset to initial GREY jetpack material");
+        //     }
+        //
+        //     if (scannerTool != null)
+        //     {
+        //         scannerTool.SetCurrentMaterial(characterStatProfile.initialScannerMaterial);
+        //         scannerTool.maxToolRange = characterStatProfile.initialScannerRange;
+        //         UnityEngine.Debug.Log("Reset to initial scanner material");
+        //     }
+        //
+        //     // Delete material-related keys to ensure clean state
+        //     if (ES3.KeyExists("ShovelMaterialLevel", "UpgradeSave.es3"))
+        //         ES3.DeleteKey("ShovelMaterialLevel", "UpgradeSave.es3");
+        //
+        //     if (ES3.KeyExists("PickaxeMaterialLevel", "UpgradeSave.es3"))
+        //         ES3.DeleteKey("PickaxeMaterialLevel", "UpgradeSave.es3");
+        //
+        //     if (ES3.KeyExists("JetPackMaterialLevel", "UpgradeSave.es3"))
+        //         ES3.DeleteKey("JetPackMaterialLevel", "UpgradeSave.es3");
+        //
+        //     if (ES3.KeyExists("ScannerMaterialLevel", "UpgradeSave.es3"))
+        //         ES3.DeleteKey("ScannerMaterialLevel", "UpgradeSave.es3");
+        //
+        //
+        //     // Trigger events
+        //     UpgradeEvent.Trigger(UpgradeType.Shovel, UpgradeEventType.ShovelMiningSizeSet, null, 0,
+        //         UpgradeEffectType.None, shovelToolEffectRadius, null, shovelToolEffectOpacity);
+        //
+        //     UpgradeEvent.Trigger(UpgradeType.Pickaxe, UpgradeEventType.PickaxeMiningSizeSet, null, 0,
+        //         UpgradeEffectType.None, pickaxeToolEffectRadius, null, pickaxeToolEffectOpacity);
+        //
+        //     UpgradeEvent.Trigger(UpgradeType.Scanner, UpgradeEventType.ScannerRangeSet, null, 0,
+        //         UpgradeEffectType.None, scannerRange);
+        // }
+
+
         public static void ResetPlayerUpgrades()
         {
             UnityEngine.Debug.Log("ResetPlayerUpgrades called - resetting all upgrades to initial state");
+
+            // Clear the save file completely FIRST
+            if (ES3.FileExists("UpgradeSave.es3"))
+            {
+                ES3.DeleteFile("UpgradeSave.es3");
+                UnityEngine.Debug.Log("Deleted UpgradeSave.es3 file");
+            }
 
             var characterStatProfile =
                 Resources.Load<CharacterStatProfile>(CharacterResourcePaths.CharacterStatProfileFilePath);
@@ -895,7 +1004,7 @@ namespace Domains.Player.Scripts
             foreach (var key in upgradeKeys)
                 UpgradeLevels[key] = characterStatProfile.InitialUpgradeState;
 
-            // Reset tool properties
+            // Reset tool properties to defaults
             shovelToolEffectRadius = characterStatProfile.initialShovelToolEffectRadius;
             shovelToolEffectOpacity = characterStatProfile.initialShovelToolEffectOpacity;
             shovelToolWidth = characterStatProfile.shovelMiningToolWidth;
@@ -906,13 +1015,13 @@ namespace Domains.Player.Scripts
             jetPackSpeedMultiplier = characterStatProfile.initialJetPackSpeedMultiplier;
             scannerRange = characterStatProfile.initialScannerRange;
 
-            // Reset material levels
+            // Reset material levels to 0 (default state)
             shovelMaterialLevel = 0;
             pickaxeMaterialLevel = 0;
             jetPackMaterialLevel = 0;
             scannerMaterialLevel = 0;
 
-            // Apply default materials
+            // Apply default materials and properties to tools (if they exist)
             if (shovelTool != null)
             {
                 shovelTool.SetCurrentMaterial(characterStatProfile.initialShovelMaterial);
@@ -931,7 +1040,7 @@ namespace Domains.Player.Scripts
                 UnityEngine.Debug.Log("Reset to initial pickaxe material");
             }
 
-            if (jetPackParticleSystem != null)
+            if (jetPackParticleSystem != null && playerMovement != null)
             {
                 jetPackParticleSystem.startColor = characterStatProfile.initialJetPackParticleColor;
                 playerMovement.jetPackSpeedMultiplier = characterStatProfile.initialJetPackSpeedMultiplier;
@@ -945,21 +1054,10 @@ namespace Domains.Player.Scripts
                 UnityEngine.Debug.Log("Reset to initial scanner material");
             }
 
-            // Delete material-related keys to ensure clean state
-            if (ES3.KeyExists("ShovelMaterialLevel", "UpgradeSave.es3"))
-                ES3.DeleteKey("ShovelMaterialLevel", "UpgradeSave.es3");
+            // Save the reset state (creates a fresh save file with default values)
+            SaveUpgrades();
 
-            if (ES3.KeyExists("PickaxeMaterialLevel", "UpgradeSave.es3"))
-                ES3.DeleteKey("PickaxeMaterialLevel", "UpgradeSave.es3");
-
-            if (ES3.KeyExists("JetPackMaterialLevel", "UpgradeSave.es3"))
-                ES3.DeleteKey("JetPackMaterialLevel", "UpgradeSave.es3");
-
-            if (ES3.KeyExists("ScannerMaterialLevel", "UpgradeSave.es3"))
-                ES3.DeleteKey("ScannerMaterialLevel", "UpgradeSave.es3");
-
-
-            // Trigger events
+            // Trigger events to notify other systems
             UpgradeEvent.Trigger(UpgradeType.Shovel, UpgradeEventType.ShovelMiningSizeSet, null, 0,
                 UpgradeEffectType.None, shovelToolEffectRadius, null, shovelToolEffectOpacity);
 

@@ -1,6 +1,7 @@
 ﻿using CompassNavigatorPro;
 using Domains.Gameplay.Equipment.Events;
 using Domains.Gameplay.Equipment.Scripts;
+using Domains.Gameplay.Mining.Scripts;
 using Domains.Player.Events;
 using Domains.Scripts_that_Need_Sorting;
 using Domains.UI_Global.Events;
@@ -12,7 +13,7 @@ using UnityEngine.Serialization;
 
 namespace Domains.Gameplay.Tools.ToolSpecifics
 {
-    public class ScannerTool : MonoBehaviour, IToolAction, MMEventListener<UpgradeEvent>
+    public class ScannerTool : MonoBehaviour, IToolAction, MMEventListener<UpgradeEvent>, MMEventListener<ScannerEvent>
     {
         [SerializeField] private ToolType toolType;
         [SerializeField] private ToolIteration toolIteration;
@@ -30,6 +31,8 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
 
         [FormerlySerializedAs("textureDetector")] [SerializeField]
         private TerrainLayerDetector terrainLayerDetector;
+
+        [SerializeField] private MMFeedbacks failFeedbacks;
 
         [SerializeField] private LayerMask playerMask;
         [SerializeField] public float maxToolRange = 5f;
@@ -53,12 +56,14 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
 
         public void OnEnable()
         {
-            this.MMEventStartListening();
+            this.MMEventStartListening<UpgradeEvent>();
+            this.MMEventStartListening<ScannerEvent>();
         }
 
         public void OnDisable()
         {
-            this.MMEventStopListening();
+            this.MMEventStopListening<ScannerEvent>();
+            this.MMEventStopListening<UpgradeEvent>();
         }
 
         public ToolType ToolType => toolType;
@@ -75,6 +80,12 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
         {
             if (Time.time < lastScanTime + scanningCooldown)
                 return;
+
+            if (!calibrated)
+            {
+                failFeedbacks?.PlayFeedbacks();
+                return;
+            }
 
             lastScanTime = Time.time;
             if (CooldownCoroutine != null) StopCoroutine(CooldownCoroutine);
@@ -119,6 +130,11 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
 
         public void HideCooldownBar()
         {
+        }
+
+        public void OnMMEvent(ScannerEvent eventType)
+        {
+            if (eventType.ScannerEventType == ScannerEventType.ScannerCalibrated) calibrated = true;
         }
 
 

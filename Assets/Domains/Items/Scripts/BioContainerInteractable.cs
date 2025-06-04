@@ -88,8 +88,14 @@ namespace Domains.Items.Scripts
                 highlightEffect.enabled = false;
 
             // Disable the script
-            var prompt = GetComponentInChildren<ButtonPromptWithAction>().gameObject;
-            Destroy(prompt);
+            var prompt = GetComponentInChildren<ButtonPromptWithAction>();
+            GameObject obj;
+
+            if (prompt != null)
+            {
+                obj = prompt.gameObject;
+                Destroy(obj);
+            }
         }
 
 
