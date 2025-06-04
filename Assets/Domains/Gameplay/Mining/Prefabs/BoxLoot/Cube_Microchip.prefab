@@ -303,7 +303,7 @@ MonoBehaviour:
   innerGlowBlendMode: 0
   innerGlowVisibility: 0
   targetFX: 1
-  targetFXTexture: {fileID: 2800000, guid: 5d1b653922e2bcc4da30594890e72153, type: 3}
+  targetFXTexture: {fileID: 2800000, guid: e09d26e8b127e344490f0852b92aab02, type: 3}
   targetFXColor: {r: 1, g: 1, b: 1, a: 1}
   targetFXCenter: {fileID: 0}
   targetFXRotationSpeed: 0

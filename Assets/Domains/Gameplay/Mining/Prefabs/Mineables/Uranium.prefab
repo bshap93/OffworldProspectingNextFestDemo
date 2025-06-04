@@ -914,7 +914,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OreHardness: 0
-  UniqueID: 
+  UniqueID: 0ca1de47-ac2a-4f0b-81a1-6f40cff3a7e4
   failHitFeedbacks: {fileID: 5939243206290031498}
   failHitParticles: {fileID: 6835221663383594993, guid: b4fdebf16c953b245b30edeebb4ed72c, type: 3}
   oreHitParticles: {fileID: 6835221663383594993, guid: b4fdebf16c953b245b30edeebb4ed72c, type: 3}
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   innerGlowBlendMode: 0
   innerGlowVisibility: 0
   targetFX: 1
-  targetFXTexture: {fileID: 2800000, guid: 970eb9e7c4a7b5a4d82de74ee963f118, type: 3}
+  targetFXTexture: {fileID: 2800000, guid: 385da9447e3c57f4e9000b02b55b947b, type: 3}
   targetFXColor: {r: 1, g: 1, b: 1, a: 1}
   targetFXCenter: {fileID: 0}
   targetFXRotationSpeed: 0
@@ -1166,7 +1166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb18bd15cc5eb54dbddc9772eb732ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 
+  targetID: 6666ae32-465a-4ab5-9db4-74bf4e7584fb
   onScanned:
     m_PersistentCalls:
       m_Calls: []
