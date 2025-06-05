@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3372549, g: 0.6666667, b: 0.6156863, a: 1}
+  m_Color: {r: 0.3372549, g: 0.6666667, b: 0.6156863, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -412,7 +412,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529552823}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -777,6 +777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1115617216}
   - component: {fileID: 1115617215}
+  - component: {fileID: 1115617217}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -850,6 +851,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1115617217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115617214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f75472792fe47dbaf46384f793635c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDirty: 0
+  _layerCount: 4
+  _preset: 1
+  _depthAware: 0
+  _cameraRotation: 0
+  _layerTextures:
+  - {fileID: 2800000, guid: 12d2d9592abf6422c9fe410151c088cb, type: 3}
+  - {fileID: 2800000, guid: 12d2d9592abf6422c9fe410151c088cb, type: 3}
+  - {fileID: 2800000, guid: 12d2d9592abf6422c9fe410151c088cb, type: 3}
+  - {fileID: 2800000, guid: 12d2d9592abf6422c9fe410151c088cb, type: 3}
+  _travelSpeed:
+  - 2
+  - 1.2
+  - 0.7
+  - 0.25
+  _rotationSpeed:
+  - 0.7
+  - 0.35
+  - 0.2
+  - 0.1
+  _twist:
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  _exposure:
+  - 0.85
+  - 0.85
+  - 0.85
+  - 0.85
+  _alpha:
+  - 0.533328
+  - 0.26664
+  - 0.13332
+  - 0.06666
+  _uvOffset: {x: 0, y: 0}
+  _uvOffsetAnimated: 1
+  _uvOffsetAnimationAmplitude: 0.15
+  _hyperSpeed: 0.9
+  _globalAlpha: 1
+  _transition: 1
+  _transitionColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  _fallOff: 10
+  _blendInOrder: 0
+  _layersSpeed: 1
+  _squareTunnel: 0
+  _downsampling: 1
+  tunnelMat: {fileID: 0}
 --- !u!1 &1383385370
 GameObject:
   m_ObjectHideFlags: 0

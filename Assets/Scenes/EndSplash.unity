@@ -1677,8 +1677,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundClips:
-  - {fileID: 8300000, guid: f25d4382c8401164daa6d2a0516af499, type: 3}
-  - {fileID: 8300000, guid: b6dd2414a9c7ec5478f390d9b18fac72, type: 3}
+  - {fileID: 8300000, guid: 2ecd46bccdb94ee45a52c1271fd0da9a, type: 3}
+  - {fileID: 8300000, guid: 2fb6f1f5e15be2b40b8a731567410790, type: 3}
+  - {fileID: 8300000, guid: e53897b24c2f22147aec76e14384784b, type: 3}
   Loop: 1
   ID: 255
   volume: 0.681
@@ -2829,6 +2830,7 @@ GameObject:
   - component: {fileID: 1354675960}
   - component: {fileID: 1354675959}
   - component: {fileID: 1354675958}
+  - component: {fileID: 1354675961}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2910,6 +2912,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1354675961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354675957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f75472792fe47dbaf46384f793635c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDirty: 0
+  _layerCount: 2
+  _preset: 0
+  _depthAware: 0
+  _cameraRotation: 0
+  _layerTextures:
+  - {fileID: 2800000, guid: e30304e6475791e4a98b880691050580, type: 3}
+  - {fileID: 2800000, guid: e9ff6cb3d29a8453a8cbae0b29cc9db1, type: 3}
+  - {fileID: 2800000, guid: 12d2d9592abf6422c9fe410151c088cb, type: 3}
+  - {fileID: 2800000, guid: 12d2d9592abf6422c9fe410151c088cb, type: 3}
+  _travelSpeed:
+  - 1
+  - 9
+  - 0.35
+  - 0.2
+  _rotationSpeed:
+  - 0.1
+  - 0.1
+  - -0.5
+  - 0.5
+  _twist:
+  - 0.04
+  - -1
+  - 0.2
+  - -0.2
+  _exposure:
+  - 0.5
+  - 0.6
+  - 0.6
+  - 0.65
+  _alpha:
+  - 2
+  - 1
+  - 0.13332
+  - 0.06666
+  _uvOffset: {x: 0, y: 0}
+  _uvOffsetAnimated: 0
+  _uvOffsetAnimationAmplitude: 0.075
+  _hyperSpeed: 0
+  _globalAlpha: 1
+  _transition: 1
+  _transitionColor: {r: 0, g: 0, b: 0, a: 1}
+  _backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  _fallOff: 5.2
+  _blendInOrder: 1
+  _layersSpeed: 1
+  _squareTunnel: 0
+  _downsampling: 1
+  tunnelMat: {fileID: 0}
 --- !u!1 &1384095367
 GameObject:
   m_ObjectHideFlags: 0
@@ -4795,7 +4858,7 @@ Light:
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize: 10.59
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
