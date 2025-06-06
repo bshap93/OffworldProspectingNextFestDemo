@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
   m_GUID: 81a3a7f7e0ba5fe44afec8c5c84b88c3
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: b20df3082ee52d24fb9524ca90aa9554
+    m_Address: Assets/ThirdParty/_DLNK 1/Alien Terrain Pack/Source/Materials/Effects/Dust.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: effeb110d9f51c5479cd07b64efdba5d, type: 2}
   m_SchemaSet:
