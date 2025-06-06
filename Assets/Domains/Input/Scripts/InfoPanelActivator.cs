@@ -66,6 +66,7 @@ namespace Domains.Input.Scripts
                 HideInfoPanel();
         }
 
+
         public void ShowInfoPanel()
         {
             if (infoPanelPrefab == null) return;

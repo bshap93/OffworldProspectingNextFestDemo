@@ -16,6 +16,8 @@ namespace Domains.Player.Scripts
         public float interactionDistance = 2f; // How far the player can interact
         public LayerMask interactableLayer; // Only detect objects in this layer
         public LayerMask terrainLayer; // Only detect objects in this layer
+        public LayerMask obstacleLayer; // New: layers that block interaction (e.g., walls, rocks)
+
 
         public UnityEngine.Camera playerCamera; // Reference to the player’s camera
 
@@ -268,25 +270,69 @@ namespace Domains.Player.Scripts
 
             var interactMask = interactableLayer & ~playerLayerMask;
             var terrMask = terrainLayer & ~playerLayerMask;
+            var obstacleMask = obstacleLayer & ~playerLayerMask; // Add obstacle mask
 
-            // First check if terrain is blocking
+            // Check for obstacles first
+            RaycastHit obstacleHit;
+            var obstacleBlocking = Physics.Raycast(
+                rayOrigin, rayDirection, out obstacleHit, interactionDistance, obstacleMask);
+
+            // Check if terrain is blocking
             RaycastHit terrainHit;
             var terrainBlocking = Physics.Raycast(
                 rayOrigin, rayDirection, out terrainHit, interactionDistance, terrMask);
 
-            // Then check for interactables
+            // Check for interactables
             RaycastHit interactableHit;
             var hitInteractable = Physics.Raycast(
                 rayOrigin, rayDirection, out interactableHit, interactionDistance, interactMask);
 
             // Only interact if:
             // 1. We hit an interactable AND
-            // 2. Either there's no terrain blocking OR the interactable is closer than the terrain
-            if (hitInteractable && (!terrainBlocking || interactableHit.distance < terrainHit.distance))
+            // 2. No obstacles are blocking AND
+            // 3. Either there's no terrain blocking OR the interactable is closer than the terrain
+            if (hitInteractable &&
+                (!obstacleBlocking || interactableHit.distance < obstacleHit.distance) &&
+                (!terrainBlocking || interactableHit.distance < terrainHit.distance))
             {
                 var interactable = interactableHit.collider.GetComponent<IInteractable>();
-                if (interactable != null) interactable.Interact();
+                if (interactable != null)
+                    interactable.Interact();
             }
         }
+
+        // private void PerformInteraction()
+        // {
+        //     if (playerCamera == null)
+        //     {
+        //         UnityEngine.Debug.LogError("PlayerInteraction: No camera assigned!");
+        //         return;
+        //     }
+        //
+        //     var rayOrigin = playerCamera.transform.position;
+        //     var rayDirection = playerCamera.transform.forward;
+        //
+        //     var interactMask = interactableLayer & ~playerLayerMask;
+        //     var terrMask = terrainLayer & ~playerLayerMask;
+        //
+        //     // First check if terrain is blocking
+        //     RaycastHit terrainHit;
+        //     var terrainBlocking = Physics.Raycast(
+        //         rayOrigin, rayDirection, out terrainHit, interactionDistance, terrMask);
+        //
+        //     // Then check for interactables
+        //     RaycastHit interactableHit;
+        //     var hitInteractable = Physics.Raycast(
+        //         rayOrigin, rayDirection, out interactableHit, interactionDistance, interactMask);
+        //
+        //     // Only interact if:
+        //     // 1. We hit an interactable AND
+        //     // 2. Either there's no terrain blocking OR the interactable is closer than the terrain
+        //     if (hitInteractable && (!terrainBlocking || interactableHit.distance < terrainHit.distance))
+        //     {
+        //         var interactable = interactableHit.collider.GetComponent<IInteractable>();
+        //         if (interactable != null) interactable.Interact();
+        //     }
+        // }
     }
 }
