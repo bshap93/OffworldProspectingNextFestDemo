@@ -592,7 +592,7 @@ MonoBehaviour:
   onMessage:
     m_PersistentCalls:
       m_Calls: []
-  waitForNormalChars: 0.015
+  waitForNormalChars: 0.01
   waitLong: 0.6
   waitMiddle: 0.2
   avoidMultiplePunctuationWait: 0

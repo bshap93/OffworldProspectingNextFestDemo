@@ -14,7 +14,7 @@ using UnityEngine.Serialization;
 
 namespace Domains.Gameplay.Equipment.Scripts
 {
-    public class PlayerEquipment : MonoBehaviour, MMEventListener<ScannerEvent>
+    public class PlayerEquipment : MonoBehaviour, MMEventListener<ScannerEvent>, MMEventListener<UIEvent>
     {
         public static PlayerEquipment Instance;
 
@@ -22,7 +22,6 @@ namespace Domains.Gameplay.Equipment.Scripts
         [SerializeField] private MMFeedbacks equipMinerFeedbacks;
         [SerializeField] private MMFeedbacks equipScannerFeedbacks;
         [SerializeField] private ToolPanelController toolPanelController;
-
 
 
         public ToolType currentToolType;
@@ -39,6 +38,8 @@ namespace Domains.Gameplay.Equipment.Scripts
         private float lastToolSwitchTime = -1f;
 
         private int numTools;
+
+        private bool switchToolEnabled = true;
 
         public IToolAction[] Tools { get; private set; } // Used in code
 
@@ -72,7 +73,8 @@ namespace Domains.Gameplay.Equipment.Scripts
 
         private void Update()
         {
-            if (CustomInputBindings.IsChangingTools() && Time.time - lastToolSwitchTime > toolSwitchCooldown)
+            if (CustomInputBindings.IsChangingTools() && Time.time - lastToolSwitchTime > toolSwitchCooldown &&
+                switchToolEnabled)
             {
                 if (PauseManager.Instance.IsPaused()) return;
                 var direction = CustomInputBindings.GetWeaponChangeDirection();
@@ -84,12 +86,14 @@ namespace Domains.Gameplay.Equipment.Scripts
 
         private void OnEnable()
         {
-            this.MMEventStartListening();
+            this.MMEventStartListening<ScannerEvent>();
+            this.MMEventStartListening<UIEvent>();
         }
 
         private void OnDisable()
         {
-            this.MMEventStopListening();
+            this.MMEventStopListening<ScannerEvent>();
+            this.MMEventStopListening<UIEvent>();
         }
 
         public void OnMMEvent(ScannerEvent eventType)
@@ -108,6 +112,26 @@ namespace Domains.Gameplay.Equipment.Scripts
                     UnityEngine.Debug.LogWarning("ScannerTool not found at index 2.");
                 }
             }
+        }
+
+        public void OnMMEvent(UIEvent eventType)
+        {
+            if (eventType.EventType == UIEventType.OpenVendorConsole ||
+                eventType.EventType == UIEventType.OpenFuelConsole ||
+                eventType.EventType == UIEventType.OpenInfoDump ||
+                eventType.EventType == UIEventType.OpenQuestDialogue ||
+                eventType.EventType == UIEventType.OpenBriefing ||
+                eventType.EventType == UIEventType.OpenCommsComputer
+                || eventType.EventType == UIEventType.OpenInfoPanel
+               ) EnableToolChange(false);
+            else if (eventType.EventType == UIEventType.CloseVendorConsole ||
+                     eventType.EventType == UIEventType.CloseFuelConsole ||
+                     eventType.EventType == UIEventType.CloseInfoDump ||
+                     eventType.EventType == UIEventType.CloseQuestDialogue
+                     || eventType.EventType == UIEventType.CloseBriefing ||
+                     eventType.EventType == UIEventType.CloseCommsComputer
+                     || eventType.EventType == UIEventType.CloseInfoPanel
+                    ) EnableToolChange(true);
         }
 
         private void SwitchTool(int index)
@@ -155,16 +179,15 @@ namespace Domains.Gameplay.Equipment.Scripts
         public float GetScannerMaxRange()
         {
             var scannerTool = Tools[2] as ScannerTool;
-            if (scannerTool != null)
-            {
-                return scannerTool.maxToolRange;
-            }
-            else
-            {
-                UnityEngine.Debug.LogWarning("ScannerTool not found at index 2.");
-                return 0f; // Default value or handle error appropriately
-            }
-            
+            if (scannerTool != null) return scannerTool.maxToolRange;
+
+            UnityEngine.Debug.LogWarning("ScannerTool not found at index 2.");
+            return 0f; // Default value or handle error appropriately
+        }
+
+        public void EnableToolChange(bool enable)
+        {
+            switchToolEnabled = enable;
         }
     }
 }
