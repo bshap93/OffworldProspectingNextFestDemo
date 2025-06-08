@@ -19,7 +19,7 @@ MonoBehaviour:
   - Scanner LV3
   - Scanner LV4
   description: 
-  upgradeCosts: b0040000980800003011000028230000
+  upgradeCosts: 40060000d0070000800c000030110000
   upgradeColors:
   - {r: 0.52156866, g: 1, b: 0, a: 1}
   - {r: 0, g: 0.43137255, b: 0.8509804, a: 1}

@@ -19,7 +19,7 @@ MonoBehaviour:
   - Pickaxe LV3
   - Pickaxe LV4
   description: 
-  upgradeCosts: 60090000a00f0000401f0000803e0000
+  upgradeCosts: 60090000800c00003011000050140000
   upgradeColors:
   - {r: 0.52156866, g: 1, b: 0, a: 1}
   - {r: 0, g: 0.43137255, b: 0.8509804, a: 1}
