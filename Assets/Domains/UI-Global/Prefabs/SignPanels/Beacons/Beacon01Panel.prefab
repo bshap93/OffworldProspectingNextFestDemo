@@ -1219,9 +1219,9 @@ GameObject:
   - component: {fileID: 2985713218183361803}
   - component: {fileID: 8678302516515549418}
   - component: {fileID: 7811045827905548769}
-  - component: {fileID: 4378059710335338382}
-  - component: {fileID: 1154010617908338962}
-  - component: {fileID: 4681087737458061145}
+  - component: {fileID: 2466386500947489551}
+  - component: {fileID: 3731473912840404047}
+  - component: {fileID: 3772687961885185689}
   m_Layer: 0
   m_Name: Description
   m_TagString: Untagged
@@ -1277,9 +1277,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You find the second beacon. Part of you wants to see more of the mysterious,
+  m_text: "You find the second beacon. Part of you wants to see more of the mysterious,
     yet short, vision you had after touching the first one. You wonder if you're
-    being reckless.
+    being reckless.\n\nSuddenly, without having to touch it, Cryo-Sleep pods destroyed
+    or expired, red fatal errors implicating what is obvious from the yellowed necrotic
+    hue. \n\nYou suspect that it now whatever these beacons are, they have 'learned'
+    to interface with your standard prospecting implants without the need for touch."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: baf5990ef136e594abc52299c06d9b48, type: 2}
   m_sharedMaterial: {fileID: 21500823079736722, guid: baf5990ef136e594abc52299c06d9b48, type: 2}
@@ -1306,8 +1309,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 17.5
+  m_fontSizeBase: 17.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1344,13 +1347,13 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -47.920242, y: 0, z: -122.403336, w: -3.817696}
+  m_margin: {x: -110.80574, y: 0, z: -73.465454, w: -245.72678}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4378059710335338382
+--- !u!114 &2466386500947489551
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1365,24 +1368,23 @@ MonoBehaviour:
   typewriterStartsAutomatically: 1
   animationLoop: 0
   timeScale: 0
-  _text: 'You touch the container''s metallic surface and receive a vivid impression
-    for a split-second. '
+  _text: 
   useDynamicScaling: 1
   referenceFontSize: 10
   isResettingTimeOnNewText: 1
   useDefaultDatabases: 1
-  databaseBehaviors: {fileID: 11400000, guid: bedb45af9cd1ae74c9874c6480a15bdc, type: 2}
-  databaseAppearances: {fileID: 11400000, guid: 0e3cd3de537f64c4989e24e50f66287d, type: 2}
+  databaseBehaviors: {fileID: 0}
+  databaseAppearances: {fileID: 0}
   useDefaultStyleSheet: 1
   styleSheet: {fileID: 0}
-  databaseActions: {fileID: 11400000, guid: 371bc2bdc7ae80145aada6327da92672, type: 2}
+  databaseActions: {fileID: 0}
   defaultAppearancesTags:
   - size
   defaultDisappearancesTags:
   - fade
   defaultBehaviorsTags: []
   defaultTagsMode: 0
---- !u!114 &1154010617908338962
+--- !u!114 &3731473912840404047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1395,7 +1397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useTypeWriter: 1
-  startTypewriterMode: 0
+  startTypewriterMode: 3
   hideAppearancesOnSkip: 0
   hideDisappearancesOnSkip: 0
   triggerEventsOnSkip: 0
@@ -1418,7 +1420,7 @@ MonoBehaviour:
   onMessage:
     m_PersistentCalls:
       m_Calls: []
-  waitForNormalChars: 0.03
+  waitForNormalChars: 0.01
   waitLong: 0.6
   waitMiddle: 0.2
   avoidMultiplePunctuationWait: 0
@@ -1427,7 +1429,7 @@ MonoBehaviour:
   useTypewriterWaitForDisappearances: 1
   disappearanceWaitTime: 0.015
   disappearanceSpeedMultiplier: 1
---- !u!114 &4681087737458061145
+--- !u!114 &3772687961885185689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1964,14 +1966,14 @@ RectTransform:
   m_GameObject: {fileID: 4447781119093959499}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2651958, y: 0.597801, z: 0.597801}
+  m_LocalScale: {x: 1.5267354, y: 0.597801, z: 0.597801}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1039615184785408996}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0}
+  m_AnchoredPosition: {x: -8.1, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3318969799300676939
@@ -2040,7 +2042,7 @@ RectTransform:
   m_GameObject: {fileID: 4682630453094578630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.82869345, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1824103649782800550}
@@ -2048,7 +2050,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36.1, y: -11.3}
+  m_AnchoredPosition: {x: -43.3, y: -11.3}
   m_SizeDelta: {x: 126.51958, y: 59.780106}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7346879945165661576
@@ -3276,7 +3278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1295362261919863293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4219,7 +4221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6745309809085731877
 RectTransform:
   m_ObjectHideFlags: 0

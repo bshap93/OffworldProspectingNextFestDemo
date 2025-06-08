@@ -1368,9 +1368,9 @@ GameObject:
   - component: {fileID: 2985713218183361803}
   - component: {fileID: 8678302516515549418}
   - component: {fileID: 7811045827905548769}
-  - component: {fileID: 4378059710335338382}
-  - component: {fileID: 1154010617908338962}
-  - component: {fileID: 4681087737458061145}
+  - component: {fileID: 222223410395213268}
+  - component: {fileID: 2725926453188321747}
+  - component: {fileID: 4146853886193023098}
   m_Layer: 0
   m_Name: Description
   m_TagString: Untagged
@@ -1426,7 +1426,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Along with another visual impression, you feel sure this was the last beacon.
+  m_text: 'Along with another visual impression, you feel sure this was the last
+    beacon.
+
+
+    One crysoleep pod appears intact and the somehow you know its contents
+    are alive. It reaches out and you feel its unnerving gaze.
+
+
+    Despite your
+    intense fear, you feel an intense need to make contact with the being in that
+    pod.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: baf5990ef136e594abc52299c06d9b48, type: 2}
   m_sharedMaterial: {fileID: 21500823079736722, guid: baf5990ef136e594abc52299c06d9b48, type: 2}
@@ -1491,13 +1501,13 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -47.920242, y: 0, z: -122.403336, w: -3.817696}
+  m_margin: {x: -47.920242, y: 0, z: -122.403336, w: -197.41623}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4378059710335338382
+--- !u!114 &222223410395213268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1512,24 +1522,23 @@ MonoBehaviour:
   typewriterStartsAutomatically: 1
   animationLoop: 0
   timeScale: 0
-  _text: 'You touch the container''s metallic surface and receive a vivid impression
-    for a split-second. '
+  _text: 
   useDynamicScaling: 1
   referenceFontSize: 10
   isResettingTimeOnNewText: 1
   useDefaultDatabases: 1
-  databaseBehaviors: {fileID: 11400000, guid: bedb45af9cd1ae74c9874c6480a15bdc, type: 2}
-  databaseAppearances: {fileID: 11400000, guid: 0e3cd3de537f64c4989e24e50f66287d, type: 2}
+  databaseBehaviors: {fileID: 0}
+  databaseAppearances: {fileID: 0}
   useDefaultStyleSheet: 1
   styleSheet: {fileID: 0}
-  databaseActions: {fileID: 11400000, guid: 371bc2bdc7ae80145aada6327da92672, type: 2}
+  databaseActions: {fileID: 0}
   defaultAppearancesTags:
   - size
   defaultDisappearancesTags:
   - fade
   defaultBehaviorsTags: []
   defaultTagsMode: 0
---- !u!114 &1154010617908338962
+--- !u!114 &2725926453188321747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1542,7 +1551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useTypeWriter: 1
-  startTypewriterMode: 0
+  startTypewriterMode: 3
   hideAppearancesOnSkip: 0
   hideDisappearancesOnSkip: 0
   triggerEventsOnSkip: 0
@@ -1565,7 +1574,7 @@ MonoBehaviour:
   onMessage:
     m_PersistentCalls:
       m_Calls: []
-  waitForNormalChars: 0.03
+  waitForNormalChars: 0.01
   waitLong: 0.6
   waitMiddle: 0.2
   avoidMultiplePunctuationWait: 0
@@ -1574,7 +1583,7 @@ MonoBehaviour:
   useTypewriterWaitForDisappearances: 1
   disappearanceWaitTime: 0.015
   disappearanceSpeedMultiplier: 1
---- !u!114 &4681087737458061145
+--- !u!114 &4146853886193023098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2014,7 +2023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.399998, y: -5}
+  m_AnchoredPosition: {x: -47.3, y: -5}
   m_SizeDelta: {x: 125.12939, y: 77.8653}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1057246948180050773
@@ -3273,7 +3282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1295362261919863293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4145,7 +4154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6745309809085731877
 RectTransform:
   m_ObjectHideFlags: 0
