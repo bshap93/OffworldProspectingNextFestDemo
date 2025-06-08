@@ -6605,7 +6605,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 820989880}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.28735632
+  m_Size: 0.2873563
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10759,7 +10759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &831038513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13620,7 +13620,7 @@ MonoBehaviour:
         Owner: {fileID: 1001247500}
         DebugActive: 0
         LoadingSceneName: MyCoolLoadingScreen
-        DestinationSceneName: MainScene08C
+        DestinationSceneName: MainScene08D
         LoadingMode: 2
         Priority: 4
         SecureLoad: 1

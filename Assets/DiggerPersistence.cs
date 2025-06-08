@@ -8,7 +8,8 @@ public class DiggerPersistence : MonoBehaviour
 
     private void Awake()
     {
-        _diggerMasterRuntime = GetComponent<DiggerMasterRuntime>();
+        // _diggerMasterRuntime = GetComponent<DiggerMasterRuntime>();
+        // _diggerMasterRuntime.ClearScene();
     }
 
 
@@ -16,13 +17,16 @@ public class DiggerPersistence : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            _diggerMasterRuntime.PersistAll();
-            AlertEvent.Trigger(AlertReason.DiggerPersisted, "Digger data has been persisted at runtime.",
-                "Digger Persisted");
+            // _diggerMasterRuntime.PersistAll();
+            // AlertEvent.Trigger(AlertReason.DiggerPersisted, "Digger data has been persisted at runtime.",
+            //     "Digger Persisted");
         }
     }
 
     private void OnApplicationQuit()
     {
+        // _diggerMasterRuntime.PersistAll();
+        // AlertEvent.Trigger(AlertReason.DiggerPersisted, "Digger data has been persisted on application quit.",
+        //     "Digger Persisted");
     }
 }

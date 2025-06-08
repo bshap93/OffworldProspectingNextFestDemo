@@ -12,14 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MyCoolLoadingScreen.unity
     guid: 34bda9179f6a86546b9eac21302699a1
   - enabled: 1
-    path: Assets/Scenes/MainScene08C.unity
-    guid: 1f8fe4f6df36bf64492b7e8d57abe003
-  - enabled: 1
     path: Assets/Scenes/EndSplash.unity
     guid: 76562ac3f292ccf4f82c802843cfbc7d
   - enabled: 1
     path: Assets/Scenes/Facility01.unity
     guid: f9b38ab429134cd409550b770006a216
+  - enabled: 1
+    path: Assets/Scenes/MainScene08D.unity
+    guid: 0606b6b41460386499d031b42da213c9
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e309ba3ae23ab3344aed3e0dbf88cf47, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: dc6be75000ec08d4d9b4b3f9da13883e, type: 2}
