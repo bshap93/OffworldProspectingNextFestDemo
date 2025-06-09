@@ -22,7 +22,7 @@ MonoBehaviour:
   - playerDepth: -9
     defaultLayerIndex: 11
     alternateAcceptableLayerIndices: 03000000
-  - playerDepth: -18
+  - playerDepth: -16
     defaultLayerIndex: 6
     alternateAcceptableLayerIndices: 
   - playerDepth: -24
