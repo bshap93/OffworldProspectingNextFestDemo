@@ -120,9 +120,10 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
             }
         }
 
-        private void OnEnable()
+        private new void OnEnable()
         {
-            this.MMEventStartListening();
+            base.OnEnable();
+            this.MMEventStartListening<UpgradeEvent>();
 
             // Force validation whenever tool is enabled
             forceValidation = true;
@@ -144,9 +145,9 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
             // if (debugLogging) UnityEngine.Debug.Log("PickaxeTool enabled and reset");
         }
 
-        private void OnDisable()
+        private new void OnDisable()
         {
-            this.MMEventStopListening();
+            this.MMEventStopListening<UpgradeEvent>();
 
             // Cancel any ongoing digging when tool is disabled
             if (activeDigCoroutine != null)

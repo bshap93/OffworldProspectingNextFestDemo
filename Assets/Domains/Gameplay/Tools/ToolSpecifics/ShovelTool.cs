@@ -34,16 +34,18 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
             playerInteraction = FindFirstObjectByType<PlayerInteraction>();
         }
 
-        private void OnEnable()
+        private new void OnEnable()
         {
-            this.MMEventStartListening();
+            base.OnEnable();
+            this.MMEventStartListening<UpgradeEvent>();
             // Reapply current material when enabled
             if (currentMaterial != null) SetCurrentMaterial(currentMaterial);
         }
 
-        private void OnDisable()
+        private new void OnDisable()
         {
-            this.MMEventStopListening();
+            base.OnDisable();
+            this.MMEventStopListening<UpgradeEvent>();
         }
 
 

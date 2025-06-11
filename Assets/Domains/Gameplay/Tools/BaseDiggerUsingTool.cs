@@ -1,15 +1,17 @@
 ﻿using System;
 using Digger.Modules.Core.Sources;
 using Digger.Modules.Runtime.Sources;
+using Domains.Gameplay.Objects.Powerups;
 using Domains.Player.Scripts;
 using Domains.Scripts_that_Need_Sorting;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Domains.Gameplay.Tools
 {
-    public abstract class BaseDiggerUsingTool : MonoBehaviour, IToolAction
+    public abstract class BaseDiggerUsingTool : MonoBehaviour, IToolAction, MMEventListener<PowerUpEvent>
     {
         [Header("Dig Settings")] public float diggerUsingRange = 5f;
 
@@ -53,6 +55,7 @@ namespace Domains.Gameplay.Tools
 
         protected readonly ActionType Action = ActionType.Dig;
         protected readonly bool EditAsynchronously = true;
+        private readonly float _baseMiningCooldown = 1f; // seconds between digs
         protected Coroutine CooldownCoroutine;
 
         private float currentDepth;
@@ -64,6 +67,16 @@ namespace Domains.Gameplay.Tools
         protected float lastDigTime = -999f;
         protected RaycastHit lastHit;
         protected PlayerInteraction playerInteraction;
+
+        protected void OnEnable()
+        {
+            this.MMEventStartListening();
+        }
+
+        protected void OnDisable()
+        {
+            this.MMEventStopListening();
+        }
 
         public ToolType ToolType => toolType;
         public ToolIteration ToolIteration => toolIteration;
@@ -139,6 +152,19 @@ namespace Domains.Gameplay.Tools
 
         public void HideCooldownBar()
         {
+        }
+
+        public void OnMMEvent(PowerUpEvent eventType)
+        {
+            var powerUpType = eventType.PowerUpScriptableObject.powerUpType;
+            var powerUpMultiplier = eventType.PowerUpScriptableObject.multiplier;
+            if (eventType.PowerUpEventType == PowerUpEventType.PowerUpActivated)
+                if (powerUpType == PowerUpType.SpeedBoost)
+                    miningCooldown /= powerUpMultiplier;
+
+            if (eventType.PowerUpEventType == PowerUpEventType.PowerUpExpired)
+                if (powerUpType == PowerUpType.SpeedBoost)
+                    miningCooldown = _baseMiningCooldown;
         }
 
         protected int GetTerrainLayerBasedOnDepthAndOverrides(int rawTextureIndex, float digDepth)

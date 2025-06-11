@@ -1,6 +1,7 @@
 ﻿using System;
 using Domains.Effects.Scripts;
 using Domains.Gameplay.Mining.Scripts;
+using Domains.Gameplay.Objects.Items.Scripts;
 using Domains.Input.Scripts;
 using Domains.Items.Scripts;
 using UnityEditor;
