@@ -53,9 +53,10 @@ namespace Domains.Gameplay.Tools
         [FormerlySerializedAs("textureDetector")] [FormerlySerializedAs("_textureDetector")] [SerializeField]
         protected TerrainLayerDetector terrainLayerDetector;
 
+        private readonly float _baseMiningCooldown = 1f; // seconds between digs
+
         protected readonly ActionType Action = ActionType.Dig;
         protected readonly bool EditAsynchronously = true;
-        private readonly float _baseMiningCooldown = 1f; // seconds between digs
         protected Coroutine CooldownCoroutine;
 
         private float currentDepth;
@@ -154,13 +155,18 @@ namespace Domains.Gameplay.Tools
         {
         }
 
-        public void OnMMEvent(PowerUpEvent eventType)
+        public virtual void OnMMEvent(PowerUpEvent eventType)
         {
             var powerUpType = eventType.PowerUpScriptableObject.powerUpType;
             var powerUpMultiplier = eventType.PowerUpScriptableObject.multiplier;
             if (eventType.PowerUpEventType == PowerUpEventType.PowerUpActivated)
                 if (powerUpType == PowerUpType.SpeedBoost)
+                {
                     miningCooldown /= powerUpMultiplier;
+                    UnityEngine.Debug.Log(
+                        $"Mining cooldown adjusted to: {miningCooldown} seconds due to SpeedBoost power-up.");
+                }
+
 
             if (eventType.PowerUpEventType == PowerUpEventType.PowerUpExpired)
                 if (powerUpType == PowerUpType.SpeedBoost)

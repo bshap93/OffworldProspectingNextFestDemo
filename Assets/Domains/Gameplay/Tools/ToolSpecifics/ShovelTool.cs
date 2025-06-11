@@ -2,6 +2,7 @@
 using Digger.Modules.Runtime.Sources;
 using Domains.Gameplay.Managers;
 using Domains.Gameplay.Mining.Scripts;
+using Domains.Gameplay.Objects.Powerups;
 using Domains.Player.Camera;
 using Domains.Player.Events;
 using Domains.Player.Scripts;
@@ -53,6 +54,11 @@ namespace Domains.Gameplay.Tools.ToolSpecifics
         {
             if (eventType.EventType == UpgradeEventType.ShovelMiningSizeSet)
                 SetDiggerUsingToolEffectSize(eventType.EffectValue, eventType.EffectValue2);
+        }
+
+        public override void OnMMEvent(PowerUpEvent eventType)
+        {
+            base.OnMMEvent(eventType);
         }
 
         public void SetCurrentMaterial(Material material)

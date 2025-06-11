@@ -27,7 +27,6 @@ namespace Domains.Gameplay.Tools.Shovel
             rotationSpring.UpdateSpringValue(Time.deltaTime);
 
             // Apply as X-axis rotation offset
-            
         }
 
         public void TriggerSwing()
