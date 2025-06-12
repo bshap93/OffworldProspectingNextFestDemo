@@ -21,6 +21,7 @@ namespace Domains.Gameplay.DirigibleFlight
         public int airshipPlayerId;
 
         private Rewired.Player airshipPlayer;
+        [SerializeField]
         private DirigibleCameraController dirigibleCameraController;
 
         private DirigibleEffectController dirigibleEffectController;
