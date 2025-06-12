@@ -487,13 +487,13 @@ MonoBehaviour:
       _categoryId: 0
     - _id: 5
       _name: Change Effect
-      _type: 1
+      _type: 0
       _descriptiveName: Select an Effect to Apply
-      _positiveDescriptiveName: 
-      _negativeDescriptiveName: 
+      _positiveDescriptiveName: Change effect right
+      _negativeDescriptiveName: Change effect left
       _key: 
-      _positiveKey: 
-      _negativeKey: 
+      _positiveKey: ']'
+      _negativeKey: '['
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
@@ -672,6 +672,17 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
+        _actionId: 5
+        _elementType: 1
+        _elementIdentifierId: 5
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 1
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
         _actionId: 7
         _elementType: 0
         _elementIdentifierId: 2
@@ -811,6 +822,17 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 5
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 1
+        _keyboardKeyCode: 9
+        _modifierKey1: 3
+        _modifierKey2: 0
+        _modifierKey3: 0
     mouseMaps:
     - id: 0
       categoryId: 0
@@ -845,6 +867,17 @@ MonoBehaviour:
         _actionId: 5
         _elementType: 0
         _elementIdentifierId: 2
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 5
+        _elementType: 0
+        _elementIdentifierId: 10
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
@@ -899,7 +932,6 @@ GameObject:
   - component: {fileID: 81509383}
   - component: {fileID: 81509382}
   - component: {fileID: 81509381}
-  - component: {fileID: 81509380}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -907,19 +939,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!114 &81509380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81509379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06ebe76cade546c498ab4d6ab9409e2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrainBehavior: {fileID: 11400000, guid: 690cfb9f7a9242943bf639ce41ccf9c2, type: 2}
 --- !u!154 &81509381
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -992,8 +1011,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2018250972}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &363524337
@@ -1182,105 +1200,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 363524338}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &2018250971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2018250972}
-  - component: {fileID: 2018250974}
-  - component: {fileID: 2018250973}
-  m_Layer: 14
-  m_Name: Digger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2018250972
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018250971}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 81509383}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2018250973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018250971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c12efbee81634dd78fa2cb2ab5a26c2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  digger: {fileID: 2018250974}
---- !u!114 &2018250974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018250971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d2e180125d4ac3a3e845f480befdfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  master: {fileID: 0}
-  guid: 5bcfc3f6dd934424eb6c642bd9634eb1
-  version: 9
-  basePathData: Assets\DiggerData\Scenes\DirigibleTestArea\5bcfc3f6dd934424eb6c642bd9634eb1
-  cutter: {fileID: 2018250973}
-  heightmapScale: {x: 0.24414062, y: 0.24414062, z: 0.24414062}
-  alphamapsSize:
-    x: 512
-    y: 512
-  uvScale: {x: 0.004, y: 0.004}
-  holeMapScale: {x: 0.48828125, y: 1, z: 0.48828125}
-  Terrain: {fileID: 81509382}
-  Materials:
-  - {fileID: 2100000, guid: 2b407667b37bcf1429c2f315afb0c1db, type: 2}
-  - {fileID: 2100000, guid: 63ace0aa37480df48849a366ce00775f, type: 2}
-  - {fileID: 2100000, guid: 0f6bbdc564252f3448570a0e71c86af8, type: 2}
-  - {fileID: 2100000, guid: cb5ec7a48533af64faeb267f7670daef, type: 2}
-  materialType: 0
-  terrainTextures:
-  - {fileID: 2800000, guid: 47e9de2345b348a479d170e00f2f2194, type: 3}
-  - {fileID: 2800000, guid: 00fb8b0ec6403fc4c9e842cb134f38ac, type: 3}
-  - {fileID: 2800000, guid: 52cdc437570a70744872ef354c000683, type: 3}
-  - {fileID: 2800000, guid: 99227c2bd3ed5a741bb0416174a48ce7, type: 3}
-  - {fileID: 2800000, guid: 50fa3b9e43ea6114fbc09d69bec4ed40, type: 3}
-  - {fileID: 2800000, guid: fec5253eb8292df42a07de3d65b20035, type: 3}
-  - {fileID: 2800000, guid: 038208be6e032b743973e6333b508e82, type: 3}
-  - {fileID: 2800000, guid: 74ea4de7aac8a3340be4ebabf179a6b3, type: 3}
-  - {fileID: 2800000, guid: 09332f0fb68ca854c9df45879eb60d7c, type: 3}
-  - {fileID: 2800000, guid: a6c03b73d64136742ae63f43b4c45243, type: 3}
-  - {fileID: 2800000, guid: 6989c6f90a480dc47893eb23102e0457, type: 3}
-  - {fileID: 2800000, guid: 0f80abba0fa3fba4780f0d4d26c55add, type: 3}
-  - {fileID: 2800000, guid: 6dd6b926c1d7b704cbd629429f240bfc, type: 3}
-  - {fileID: 2800000, guid: b2644f95218aee14385c24aed587da93, type: 3}
-  - {fileID: 2800000, guid: dff9e60d1f1231348b63388cf24617f4, type: 3}
-  - {fileID: 2800000, guid: 8d780d9a35bc69e40b128677e2d7288b, type: 3}
-  chunksInStreamingAssets: []
-  persistenceSubPath: 
-  ShowDebug: 0
-  onChunkObjectCreated:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
