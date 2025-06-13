@@ -20,11 +20,11 @@ namespace Domains.Gameplay.DirigibleFlight
         private const int ZoomActionId = 8;
         public int airshipPlayerId;
 
-        private Rewired.Player airshipPlayer;
-        [SerializeField]
-        private DirigibleCameraController dirigibleCameraController;
+        [SerializeField] private DirigibleCameraController dirigibleCameraController;
 
-        private DirigibleEffectController dirigibleEffectController;
+        [SerializeField] private DirigibleEffectController dirigibleEffectController;
+
+        private Rewired.Player airshipPlayer;
         private DirigibleMovementController dirigibleMovementController;
 
 
@@ -32,8 +32,6 @@ namespace Domains.Gameplay.DirigibleFlight
         {
             airshipPlayer = ReInput.players.GetPlayer(airshipPlayerId);
             dirigibleMovementController = gameObject.GetComponent<DirigibleMovementController>();
-            dirigibleCameraController = gameObject.GetComponent<DirigibleCameraController>();
-            dirigibleEffectController = GetComponent<DirigibleEffectController>();
         }
 
         // Update is called once per frame
